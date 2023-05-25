@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Index {% endblock %}
+
+{% block container_fluid %}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">대시보드</h1>
+    </div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-xl-12 col-xl-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">대구광역시 학교 및 학생 개요</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    
+                            <thead>
+                                <script>
+                                    window.onload = function () {
+                            
+                                        var chart1 = new CanvasJS.Chart("chartContainer1", {
+                                            animationEnabled: true,
+                                            title: {
+                                                text: "총 학교 수"
+                                            },
+                                            axisX: {
+                                                valueFormatString: "YYYY"
+                                            },
+                                            axisY: {
+                                            title: "학교 수",
+                                            valueFormatString: "0",
+                                            suffix: "개",
+                                            reverse: false,
+                                            minimum: 0 // y축 시작점을 0으로 설정
+                                        },
+                                            toolTip: {
+                                                shared: true
+                                            },
+                                            legend: {
+                                                cursor: "pointer",
+                                                itemclick: toggleDataSeries
+                                            },
+                                            data: [
+                                                {
+                                                    type: "stackedColumn",
+                                                    name: "초등학교",
+                                                    showInLegend: "true",
+                                                    yValueFormatString: "### 수",
+                                                    xValueFormatString: "YYYY",
+                                                    dataPoints: [
+                                                        { label: "2016년도", y: 225 },
+                                                        { label: "2017년도", y: 228 },
+                                                        { label: "2018년도", y: 229 },
+                                                        { label: "2019년도", y: 229 },
+                                                        { label: "2020년도", y: 230 },
+                                                        { label: "2021년도", y: 232 },
+                                                        { label: "2022년도", y: 233 }
+                                                    ]
+                                                },
+                                                {
+                                                    type: "stackedColumn",
+                                                    name: "중학교",
+                                                    showInLegend: "true",
+                                                    yValueFormatString: "### 수",
+                                                    xValueFormatString: "YYYY",
+                                                    dataPoints: [
+                                                        { label: "2016년도", y: 125 },
+                                                        { label: "2017년도", y: 125 },
+                                                        { label: "2018년도", y: 125 },
+                                                        { label: "2019년도", y: 124 },
+                                                        { label: "2020년도", y: 123 },
+                                                        { label: "2021년도", y: 125 },
+                                                        { label: "2022년도", y: 125 }
+                                                    ]
+                                                },
+                                                {
+                                                    type: "stackedColumn",
+                                                    name: "고등학교",
+                                                    showInLegend: "true",
+                                                    yValueFormatString: "### 수",
+                                                    xValueFormatString: "YYYY",
+                                                    dataPoints: [
+                                                        { label: "2016년도", y: 92 },
+                                                        { label: "2017년도", y: 93 },
+                                                        { label: "2018년도", y: 93 },
+                                                        { label: "2019년도", y: 93 },
+                                                        { label: "2020년도", y: 93 },
+                                                        { label: "2021년도", y: 94 },
+                                                        { label: "2022년도", y: 94 }
+                                                    ]
+                                                }
+                                            ]
+                                        });
+                                        chart1.render();
+                            
+                                        function toggleDataSeries(e) {
+                                            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                                                e.dataSeries.visible = false;
+                                            }
+                                            else {
+                                                e.dataSeries.visible = true;
+                                            }
+                                            chart1.render();
+                                        }
+                            
+                                        var chart2 = new CanvasJS.Chart("chartContainer2", {
+                                            animationEnabled: true,
+                                            title: {
+                                                text: "총 학생 수"
+                                            },
+                                            axisY: {
+                                                title: "학생 수",
+                                                valueFormatString: "####",
+                                                suffix: "명",
+                                                minimum: 100000,
+                                                
+                                            },
+                                            data: [{
+                                                yValueFormatString: "#,### 명",
+                                                xValueFormatString: "YYYY",
+                                                type: "spline",
+                                                dataPoints: [
+                                                    { label: "2010년도", y: 167548 },
+                                                    { label: "2011년도", y: 157693 },
+                                                    { label: "2012년도", y: 146899 },
+                                                    { label: "2013년도", y: 136309 },
+                                                    { label: "2014년도", y: 131765 },
+                                                    { label: "2015년도", y: 129583 },
+                                                    { label: "2016년도", y: 125541 },
+                                                    { label: "2017년도", y: 124708 },
+                                                    { label: "2018년도", y: 125160 },
+                                                    { label: "2019년도", y: 126122 },
+                                                    { label: "2020년도", y: 122587 },
+                                                    { label: "2021년도", y: 121308 }
+                                                ]
+                                            }]
+                                        });
+                                        chart2.render();
+                                    }
+                                </script>
+                            </thead>
+                            <tbody>
+                                <div id="chartContainer1" style="height: 360px; width: 98%;"></div>
+                                <div id="chartContainer2" style="height: 290px; width: 98%;"></div>
+                                <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">대구광역시 학교 및 학생 개요</h6>
+        </div>
+        <div class="card-body">
+            
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>학교 수 분포</th>
+                            <th>학생 수 분포</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>
+                            <div id="map1" style="width: 100%; height: 100%;">
+                                {{ map|safe }}
+                            </div>
+                        </td>
+                        <td>
+                            <div id="map2" style="width: 100%; height: 100%;">
+                                {{ map|safe }}
+                            </div>
+                        </td>         
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block js_body %}
+   {% include 'theme/components/charts_scripts.html' %}
+{% endblock %}

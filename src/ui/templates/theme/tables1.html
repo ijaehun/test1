@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Tables {% endblock %}
+
+
+{% block css %}
+<!-- Custom styles for this page -->
+<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block container_fluid %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">지역별 학생 수 예측</h1>
+    <p class="mb-4">대구광역시 10개년 지역별 학생 수 예측</p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <!-- <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div> -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>학교명</th>
+                            <th>학교종류</th>
+                            <th>학년구분</th>
+                            <th>행정구</th>
+                            <th>2024년</th>
+                            <th>2025년</th>
+                            <th>2026년</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for db in results %}
+                            <tr>
+                                <td>{{ db.학교명 }}</td>
+                                <td>{{ db.학교종류 }}</td>
+                                <td>{{ db.학년구분 }}</td>
+                                <td>{{ db.행정구 }}</td>
+                                <td>{{ db.nt }}</td>
+                                <td>{{ db.nnt }}</td>
+                                <td>{{ db.nnnt }}</td>
+                            </tr>
+                        {% endfor %}                      
+                    </tbody>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_body %}
+<!-- Data Tables -->
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+{% endblock %}
