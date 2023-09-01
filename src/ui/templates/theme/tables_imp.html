@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Tables {% endblock %}
+
+
+{% block css %}
+<!-- Custom styles for this page -->
+<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block container_fluid %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">고등어 가격 예측</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <!-- <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div> -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>출생년도</th>
+                            <th>ARIMA모델</th>
+                            <th>CRU모델</th>
+                            <th>SSM모델</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for db in results %}
+                            <tr>
+                                <td>{{ db.출생년도 }}</td>
+                                <td>{{ db.ARIMA }}</td>
+                                <td>{{ db.CRU }}</td>
+                                <td>{{ db.SSM }}</td>
+                            </tr>
+                        {% endfor %}                      
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="15">
+                                <div class="chart-area">
+                                    <script>
+                                        window.onload = function () {
+                                        
+                                        var chart = new CanvasJS.Chart("chartContainer", {
+                                            animationEnabled: true,
+                                            title:{
+                                                text: "고등어 가격 12개월 예측"
+                                            },
+                                            axisX: {
+                                                valueFormatString: "YYYY년"
+                                            },
+                                            axisY: {
+                                                title: "예측값",
+                                                suffix: " 원"
+                                            },
+                                            legend: {
+                                                    cursor: "pointer",
+                                                    itemclick: toggleDataSeries
+                                            },
+                                            toolTip:{
+                                                shared: true
+                                            },
+                                            data: [{
+                                                name: "ARIMA",
+                                                type: "spline",
+                                                yValueFormatString: "# 원",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2023년 11월", y: 9539 }, 
+                                                    { label: "2023년 12월", y: 8978 },
+                                                    { label: "2024년 1월", y: 8417 },
+                                                    { label: "2024년 2월", y: 7856 },
+                                                    { label: "2024년 3월", y: 7295 },
+                                                    { label: "2024년 4월", y: 6734 },
+                                                    { label: "2024년 5월", y: 6173 },
+                                                    { label: "2024년 6월", y: 5612 },
+                                                    { label: "2024년 7월", y: 5051 },
+                                                    { label: "2024년 8월", y: 4490 },
+                                                    { label: "2024년 9월", y: 3929 },
+                                                    { label: "2024년 10월", y: 3530 }
+                                                ]
+                                            },
+                                            {
+                                                name: "LSTM",
+                                                type: "spline",
+                                                yValueFormatString: "# 원",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2023년 11월", y: 9921 }, 
+                                                    { label: "2023년 12월", y: 9317 },
+                                                    { label: "2024년 1월", y: 8886 },
+                                                    { label: "2024년 2월", y: 8152 },
+                                                    { label: "2024년 3월", y: 7698 },
+                                                    { label: "2024년 4월", y: 7138 },
+                                                    { label: "2024년 5월", y: 6701 },
+                                                    { label: "2024년 6월", y: 6433 },
+                                                    { label: "2024년 7월", y: 6182 },
+                                                    { label: "2024년 8월", y: 5587 },
+                                                    { label: "2024년 9월", y: 5001 },
+                                                    { label: "2024년 10월", y: 4401 }
+                                                ]
+                                            },
+                                            {
+                                                name: "D_Linear",
+                                                type: "spline",
+                                                yValueFormatString: "# 원",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2023년 11월", y: 9978 }, 
+                                                    { label: "2023년 12월", y: 9414 },
+                                                    { label: "2024년 1월", y: 9156 },
+                                                    { label: "2024년 2월", y: 8895 },
+                                                    { label: "2024년 3월", y: 8534 },
+                                                    { label: "2024년 4월", y: 8173 },
+                                                    { label: "2024년 5월", y: 7861 },
+                                                    { label: "2024년 6월", y: 7651 },
+                                                    { label: "2024년 7월", y: 7490 },
+                                                    { label: "2024년 8월", y: 7230 },
+                                                    { label: "2024년 9월", y: 7099 },
+                                                    { label: "2024년 10월", y: 6868 }
+                                                ]
+                                            },]
+                                        });
+                                        chart.render();
+                                        
+                                        function toggleDataSeries(e) {
+                                            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                                                e.dataSeries.visible = false;
+                                            } else {
+                                                e.dataSeries.visible = true;
+                                            }
+                                            e.chart.render();
+                                        }
+                                        }
+                                        </script>
+                                        </head>
+                                        <body>
+                                            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                                            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+                                        </body>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_body %}
+<!-- Data Tables -->
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+{% endblock %}

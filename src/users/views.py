@@ -467,25 +467,25 @@ class Map_View(APIView): #시각화 날리는
         
         data = pd.read_csv("./test2.csv")
         data['일3년'] = data['일3년'].astype(object)
-        m = folium.Map(location=[35.85788, 128.58918], zoom_start=9)
+        m = folium.Map(location=[35.85788, 128.58918], zoom_start=1)
 
-        cp = folium.Choropleth(geo_data=gdf,
-                          name="2010",
-                          data=data,
-                          key_on='feature.properties.SIG_CD',
-                          columns=['SIG_CD', '일3년'],
-                          fill_color='YlOrRd',
-                          fill_opacity=0.5,
-                          line_opacity=0.7,
-                          legend_name='학교수',
-                          highlight=True).add_to(m)
+        # cp = folium.Choropleth(geo_data=gdf,
+        #                   name="2010",
+        #                   data=data,
+        #                   key_on='feature.properties.SIG_CD',
+        #                   columns=['SIG_CD', '일3년'],
+        #                   fill_color='YlOrRd',
+        #                   fill_opacity=0.5,
+        #                   line_opacity=0.7,
+        #                   legend_name='학교수',
+        #                   highlight=True).add_to(m)
         
-        data_indexed = data.set_index('SIG_KOR_NM')
+        # data_indexed = data.set_index('SIG_KOR_NM')
 
-        for s in cp.geojson.data['features']:
-             s['properties']['2010년'] = data_indexed.loc[s['properties']['SIG_KOR_NM'], '일3년']
+        # for s in cp.geojson.data['features']:
+        #      s['properties']['2010년'] = data_indexed.loc[s['properties']['SIG_KOR_NM'], '일3년']
   
-        folium.GeoJsonTooltip(['SIG_KOR_NM', '2010년']).add_to(cp.geojson)
+        # folium.GeoJsonTooltip(['SIG_KOR_NM', '2010년']).add_to(cp.geojson)
         
         # 툴팁(hover) 추가
         # folium.GeoJsonTooltip(
@@ -507,25 +507,25 @@ class Map_View2(APIView): #인덱스
         
         data = pd.read_csv("./test2.csv")
         data['일3년'] = data['일3년'].astype(object)
-        m = folium.Map(location=[35.85788, 128.58918], zoom_start=9)
+        m = folium.Map(location=[35.85788, 128.58918], zoom_start=1)
 
-        cp = folium.Choropleth(geo_data=gdf,
-                          name="2010",
-                          data=data,
-                          key_on='feature.properties.SIG_CD',
-                          columns=['SIG_CD', '일3년'],
-                          fill_color='YlOrRd',
-                          fill_opacity=0.5,
-                          line_opacity=0.7,
-                          legend_name='학교수',
-                          highlight=True).add_to(m)
+        # cp = folium.Choropleth(geo_data=gdf,
+        #                   name="2010",
+        #                   data=data,
+        #                   key_on='feature.properties.SIG_CD',
+        #                   columns=['SIG_CD', '일3년'],
+        #                   fill_color='YlOrRd',
+        #                   fill_opacity=0.5,
+        #                   line_opacity=0.7,
+        #                   legend_name='학교수',
+        #                   highlight=True).add_to(m)
         
-        data_indexed = data.set_index('SIG_KOR_NM')
+        # data_indexed = data.set_index('SIG_KOR_NM')
 
-        for s in cp.geojson.data['features']:
-             s['properties']['2010년'] = data_indexed.loc[s['properties']['SIG_KOR_NM'], '일3년']
+        # for s in cp.geojson.data['features']:
+        #      s['properties']['2010년'] = data_indexed.loc[s['properties']['SIG_KOR_NM'], '일3년']
   
-        folium.GeoJsonTooltip(['SIG_KOR_NM', '2010년']).add_to(cp.geojson)
+        # folium.GeoJsonTooltip(['SIG_KOR_NM', '2010년']).add_to(cp.geojson)
         
         # 툴팁(hover) 추가
         # folium.GeoJsonTooltip(
@@ -541,3 +541,21 @@ class Map_View2(APIView): #인덱스
 
         return render(request, "theme/index.html", {'map':m})
     
+class TablesexpView(APIView):
+    def get(self, request, *args, **kwargs):
+        results = schooldata_by_professer_babies.objects.all()
+        return render(request, "theme/tables_exp.html", {'results':results})
+
+    def post(self, request, *args, **kwargs):
+
+        return Response({'status': 200})
+
+class TablesimpView(APIView):
+    def get(self, request, *args, **kwargs):
+        results = schooldata_by_professer_babies.objects.all()
+        return render(request, "theme/tables_imp.html", {'results':results})
+
+    def post(self, request, *args, **kwargs):
+
+        return Response({'status': 200})
+        

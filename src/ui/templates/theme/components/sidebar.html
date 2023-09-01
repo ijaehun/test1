@@ -3,10 +3,10 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index_url' %}">
-        <img src="https://ifh.cc/g/0r01Tk.png" class="img-fluid transparency-grid" ondragstart="return false;" data-hj-suppress="true" data-v-1ab68894="" style="max-width: 35%; height: auto;">
+        <img src="https://i.ibb.co/GTKZCFK/sub010501-symbol1.png" class="img-fluid transparency-grid" ondragstart="return false;" data-hj-suppress="true" data-v-1ab68894="" style="max-width: 35%; height: auto;">
         <div class="sidebar-brand-text mx-3"></div>
       </a>
-
+      
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -47,17 +47,17 @@
           <span>대시보드</span></a>
       </li>
             
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="{% url 'users:tables_url' %}">
           <i class="fas fa-fw fa-table"></i>
-          <span>신생아수 예측</span></a>
-      </li>
+          <span>수산물 수입·수출 예측</span></a>
+      </li> -->
 
       
 
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-table"></i>
           <span>지역별 예측</span>
@@ -89,7 +89,7 @@
             <a class="collapse-item" href="{% url 'users:tables5_url' %}">3학년</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <!-- <hr class="sidebar-divider"> -->
@@ -138,25 +138,26 @@
       </li> -->
       
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="{% url 'users:tables2_url' %}">
           <i class="fas fa-fw fa-table"></i>
           <span>학생 수 예측</span></a>
-      </li>
+      </li> -->
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>시뮬레이션</span>
+          <span>수산물 가격 예측</span>
         </a>
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="{% url 'users:simulation_count_url' %}">교원 산출 시뮬레이션</a>
-              <a class="collapse-item" href="{% url 'users:simulation_close_url' %}">폐교 예측 시뮬레이션</a>
+              <a class="collapse-item" href="{% url 'users:tables_exp_url' %}">명태 가격 예측</a>
+              <a class="collapse-item" href="{% url 'users:tables_imp_url' %}">고등어 가격 예측</a>
             </div>
           </div>
       </li>
+
 
       <li class="nav-item">
         <a class="nav-link" href="{% url 'users:map_view_url' %}">

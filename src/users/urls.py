@@ -48,5 +48,8 @@ urlpatterns = [
 
     re_path(r'^map/$', views.Map_View.as_view(), name="map_view_url"),
     re_path(r'^map/$', views.Map_View2.as_view(), name="index_url"),
+
+    re_path(r'^Tablesexp/$', views.TablesexpView.as_view(), name="tables_exp_url"),
+    re_path(r'^Tablesimp/$', views.TablesimpView.as_view(), name="tables_imp_url"),
     
 ]

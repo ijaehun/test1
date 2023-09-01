@@ -17,7 +17,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">대구광역시 학교 및 학생 개요</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">수산물 수입·수출 개요</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -31,15 +31,16 @@
                                         var chart1 = new CanvasJS.Chart("chartContainer1", {
                                             animationEnabled: true,
                                             title: {
-                                                text: "총 학교 수"
+                                                text: "어종별 수입 현황",
+                                                fontSize: 25,
                                             },
                                             axisX: {
                                                 valueFormatString: "YYYY"
                                             },
                                             axisY: {
-                                            title: "학교 수",
+                                            title: "수입량",
                                             valueFormatString: "0",
-                                            suffix: "개",
+                                            suffix: "백만",
                                             reverse: false,
                                             minimum: 0 // y축 시작점을 0으로 설정
                                         },
@@ -53,56 +54,229 @@
                                             data: [
                                                 {
                                                     type: "stackedColumn",
-                                                    name: "초등학교",
+                                                    name: "명태",
                                                     showInLegend: "true",
-                                                    yValueFormatString: "### 수",
+                                                    yValueFormatString: "##### 백만",
                                                     xValueFormatString: "YYYY",
                                                     dataPoints: [
-                                                        { label: "2016년도", y: 225 },
-                                                        { label: "2017년도", y: 228 },
-                                                        { label: "2018년도", y: 229 },
-                                                        { label: "2019년도", y: 229 },
-                                                        { label: "2020년도", y: 230 },
-                                                        { label: "2021년도", y: 232 },
-                                                        { label: "2022년도", y: 233 }
+                                                        { label: "2013년", y: 235 },
+                                                        { label: "2014년", y: 217 },
+                                                        { label: "2015년", y: 230 },
+                                                        { label: "2016년", y: 258 },
+                                                        { label: "2017년", y: 262 },
+                                                        { label: "2018년", y: 257 },
+                                                        { label: "2019년", y: 184 },
+                                                        { label: "2020년", y: 212 },
+                                                        { label: "2021년", y: 323 },
+                                                        { label: "2022년", y: 240 }
                                                     ]
                                                 },
                                                 {
                                                     type: "stackedColumn",
-                                                    name: "중학교",
+                                                    name: "고등어",
                                                     showInLegend: "true",
-                                                    yValueFormatString: "### 수",
+                                                    yValueFormatString: "##### 백만",
                                                     xValueFormatString: "YYYY",
                                                     dataPoints: [
-                                                        { label: "2016년도", y: 125 },
-                                                        { label: "2017년도", y: 125 },
-                                                        { label: "2018년도", y: 125 },
-                                                        { label: "2019년도", y: 124 },
-                                                        { label: "2020년도", y: 123 },
-                                                        { label: "2021년도", y: 125 },
-                                                        { label: "2022년도", y: 125 }
+                                                        { label: "2013년", y: 19 },
+                                                        { label: "2014년", y: 36 },
+                                                        { label: "2015년", y: 54 },
+                                                        { label: "2016년", y: 50 },
+                                                        { label: "2017년", y: 53 },
+                                                        { label: "2018년", y: 51 },
+                                                        { label: "2019년", y: 52 },
+                                                        { label: "2020년", y: 55 },
+                                                        { label: "2021년", y: 64 },
+                                                        { label: "2022년", y: 45 }
                                                     ]
                                                 },
                                                 {
                                                     type: "stackedColumn",
-                                                    name: "고등학교",
+                                                    name: "갈치",
                                                     showInLegend: "true",
-                                                    yValueFormatString: "### 수",
+                                                    yValueFormatString: "##### 백만",
                                                     xValueFormatString: "YYYY",
                                                     dataPoints: [
-                                                        { label: "2016년도", y: 92 },
-                                                        { label: "2017년도", y: 93 },
-                                                        { label: "2018년도", y: 93 },
-                                                        { label: "2019년도", y: 93 },
-                                                        { label: "2020년도", y: 93 },
-                                                        { label: "2021년도", y: 94 },
-                                                        { label: "2022년도", y: 94 }
+                                                        { label: "2013년", y: 29 },
+                                                        { label: "2014년", y: 27 },
+                                                        { label: "2015년", y: 28 },
+                                                        { label: "2016년", y: 28 },
+                                                        { label: "2017년", y: 23 },
+                                                        { label: "2018년", y: 18 },
+                                                        { label: "2019년", y: 15 },
+                                                        { label: "2020년", y: 19 },
+                                                        { label: "2021년", y: 15 },
+                                                        { label: "2022년", y: 7 }
                                                     ]
-                                                }
+                                                },
+                                                
                                             ]
                                         });
                                         chart1.render();
                             
+                                        var chart2 = new CanvasJS.Chart("chartContainer2", {
+                                            animationEnabled: true,
+                                            title: {
+                                                text: "어종별 수출 현황",
+                                                fontSize: 25,
+                                            },
+                                            axisX: {
+                                                valueFormatString: "YYYY"
+                                            },
+                                            axisY: {
+                                            title: "수출량",
+                                            valueFormatString: "0",
+                                            suffix: "백만",
+                                            reverse: false,
+                                            minimum: 0 // y축 시작점을 0으로 설정
+                                        },
+                                            toolTip: {
+                                                shared: true
+                                            },
+                                            legend: {
+                                                cursor: "pointer",
+                                                itemclick: toggleDataSeries
+                                            },
+                                            data: [
+                                                {
+                                                    type: "stackedColumn",
+                                                    name: "명태",
+                                                    showInLegend: "true",
+                                                    yValueFormatString: "### 수",
+                                                    xValueFormatString: "YYYY",
+                                                    dataPoints: [
+                                                        { label: "2013년", y: 46 },
+                                                        { label: "2014년", y: 23 },
+                                                        { label: "2015년", y: 8 },
+                                                        { label: "2016년", y: 15 },
+                                                        { label: "2017년", y: 8 },
+                                                        { label: "2018년", y: 10 },
+                                                        { label: "2019년", y: 12 },
+                                                        { label: "2020년", y: 5 },
+                                                        { label: "2021년", y: 140 },
+                                                        { label: "2022년", y: 139 }
+                                                    ]
+                                                },
+                                                {
+                                                    type: "stackedColumn",
+                                                    name: "고등어",
+                                                    showInLegend: "true",
+                                                    yValueFormatString: "### 수",
+                                                    xValueFormatString: "YYYY",
+                                                    dataPoints: [
+                                                        { label: "2013년", y: 40 },
+                                                        { label: "2014년", y: 23 },
+                                                        { label: "2015년", y: 26 },
+                                                        { label: "2016년", y: 21 },
+                                                        { label: "2017년", y: 17 },
+                                                        { label: "2018년", y: 70 },
+                                                        { label: "2019년", y: 45 },
+                                                        { label: "2020년", y: 36 },
+                                                        { label: "2021년", y: 34 },
+                                                        { label: "2022년", y: 44 }
+                                                    ]
+                                                },
+                                                {
+                                                    type: "stackedColumn",
+                                                    name: "갈치",
+                                                    showInLegend: "true",
+                                                    yValueFormatString: "### 수",
+                                                    xValueFormatString: "YYYY",
+                                                    dataPoints: [
+                                                        { label: "2013년", y: 7 },
+                                                        { label: "2014년", y: 4 },
+                                                        { label: "2015년", y: 1 },
+                                                        { label: "2016년", y: 1 },
+                                                        { label: "2017년", y: 2 },
+                                                        { label: "2018년", y: 1 },
+                                                        { label: "2019년", y: 2 },
+                                                        { label: "2020년", y: 4 },
+                                                        { label: "2021년", y: 3 },
+                                                        { label: "2022년", y: 3 }
+                                                    ]
+                                                }
+                                            ]
+                                        });
+                                        chart2.render();
+                        
+                                        
+                                        var chart3 = new CanvasJS.Chart("chartContainer3", {
+                                            animationEnabled: true,
+                                            title:{
+                                                text: "어종별 연평균 가격 동향",
+                                                fontSize: 25,
+                                            },
+                                            axisX: {
+                                                valueFormatString: "YYYY년"
+                                            },
+                                            axisY: {
+                                                title: "가격",
+                                                suffix: " 원"
+                                            },
+                                            legend: {
+                                                    cursor: "pointer",
+                                                    itemclick: toggleDataSeries
+                                            },
+                                            toolTip:{
+                                                shared: true
+                                            },
+                                            data: [{
+                                                name: "명태",
+                                                type: "spline",
+                                                yValueFormatString: "# 원",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2013년", y: 2112 }, 
+                                                    { label: "2014년", y: 2155 },
+                                                    { label: "2015년", y: 2211 },
+                                                    { label: "2016년", y: 2299 },
+                                                    { label: "2017년", y: 2473 },
+                                                    { label: "2018년", y: 2581 },
+                                                    { label: "2019년", y: 2362 },
+                                                    { label: "2020년", y: 2547 },
+                                                    { label: "2021년", y: 2581 },
+                                                    { label: "2022년", y: 2936 },
+                                                ]
+                                            },
+                                            {
+                                                name: "고등어",
+                                                type: "spline",
+                                                yValueFormatString: "# 원",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2013년", y: 3355 }, 
+                                                    { label: "2014년", y: 3472 },
+                                                    { label: "2015년", y: 3246 },
+                                                    { label: "2016년", y: 2968 },
+                                                    { label: "2017년", y: 2923 },
+                                                    { label: "2018년", y: 2930 },
+                                                    { label: "2019년", y: 2618 },
+                                                    { label: "2020년", y: 3205 },
+                                                    { label: "2021년", y: 3483 },
+                                                    { label: "2022년", y: 4141 },
+                                                ]
+                                            },
+                                            {
+                                                name: "갈치",
+                                                type: "spline",
+                                                yValueFormatString: "# 원",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2013년", y: 9255 }, 
+                                                    { label: "2014년", y: 9666 },
+                                                    { label: "2015년", y: 8349 },
+                                                    { label: "2016년", y: 8310 },
+                                                    { label: "2017년", y: 9325 },
+                                                    { label: "2018년", y: 7523 },
+                                                    { label: "2019년", y: 6222 },
+                                                    { label: "2020년", y: 6819 },
+                                                    { label: "2021년", y: 7257 },
+                                                    { label: "2022년", y: 7767 },
+                                                ]
+                                            },]
+                                        });
+                                        chart3.render();
+
                                         function toggleDataSeries(e) {
                                             if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
                                                 e.dataSeries.visible = false;
@@ -110,48 +284,84 @@
                                             else {
                                                 e.dataSeries.visible = true;
                                             }
-                                            chart1.render();
+                                            chart.render();
                                         }
-                            
-                                        var chart2 = new CanvasJS.Chart("chartContainer2", {
+                                        var chart4 = new CanvasJS.Chart("chartContainer4", {
                                             animationEnabled: true,
                                             title: {
-                                                text: "총 학생 수"
-                                            },
-                                            axisY: {
-                                                title: "학생 수",
-                                                valueFormatString: "####",
-                                                suffix: "명",
-                                                minimum: 100000,
-                                                
+                                                text: "어종별 수입 비율 - 2022"
                                             },
                                             data: [{
-                                                yValueFormatString: "#,### 명",
-                                                xValueFormatString: "YYYY",
-                                                type: "spline",
+                                                type: "pie",
+                                                startAngle: 240,
+                                                yValueFormatString: "##0.00\"%\"",
+                                                indexLabel: "{label} {y}",
                                                 dataPoints: [
-                                                    { label: "2010년도", y: 167548 },
-                                                    { label: "2011년도", y: 157693 },
-                                                    { label: "2012년도", y: 146899 },
-                                                    { label: "2013년도", y: 136309 },
-                                                    { label: "2014년도", y: 131765 },
-                                                    { label: "2015년도", y: 129583 },
-                                                    { label: "2016년도", y: 125541 },
-                                                    { label: "2017년도", y: 124708 },
-                                                    { label: "2018년도", y: 125160 },
-                                                    { label: "2019년도", y: 126122 },
-                                                    { label: "2020년도", y: 122587 },
-                                                    { label: "2021년도", y: 121308 }
+                                                    {y: 4.47, label: "명태"},
+                                                    {y: 0.85, label: "고등어"},
+                                                    {y: 0.14, label: "갈치"},
+                                                    {y: 94.54, label: "기타"}
                                                 ]
                                             }]
                                         });
-                                        chart2.render();
+                                        chart4.render();
+
+                                        var chart5 = new CanvasJS.Chart("chartContainer5", {
+                                            animationEnabled: true,
+                                            title: {
+                                                text: "어종별 수출 비율 - 2022"
+                                            },
+                                            data: [{
+                                                type: "pie",
+                                                startAngle: 240,
+                                                yValueFormatString: "##0.00\"%\"",
+                                                indexLabel: "{label} {y}",
+                                                dataPoints: [
+                                                    {y: 23.57, label: "명태"},
+                                                    {y: 7.51, label: "고등어"},
+                                                    {y: 0.45, label: "갈치"},
+                                                    {y: 68.47, label: "기타"}
+                                                ]
+                                            }]
+                                        });
+                                        chart5.render();
+
+                                        var chart6 = new CanvasJS.Chart("chartContainer6", {
+                                            animationEnabled: true,
+                                            title: {
+                                                text: "어종별 가격 비율 - 2022"
+                                            },
+                                            data: [{
+                                                type: "pie",
+                                                startAngle: 240,
+                                                yValueFormatString: "##0.00\"%\"",
+                                                indexLabel: "{label} {y}",
+                                                dataPoints: [
+                                                    {y: 8.05, label: "명태"},
+                                                    {y: 12.86, label: "새우"},
+                                                    {y: 11.35, label: "고등어"},
+                                                    {y: 16.71, label: "꽁치"},
+                                                    {y: 21.29, label: "갈치"},
+                                                    {y: 16.96, label: "물오징어"},
+                                                    {y: 12.79, label: "새우"},
+                                                ]
+                                            }]
+                                        });
+                                        chart6.render();
                                     }
+
                                 </script>
                             </thead>
                             <tbody>
-                                <div id="chartContainer1" style="height: 360px; width: 98%;"></div>
+                                <div id="chartContainer1" style="height: 290px; width: 98%;"></div>
+                                <br></br>
                                 <div id="chartContainer2" style="height: 290px; width: 98%;"></div>
+                                <br></br>
+                                <div id="chartContainer3" style="height: 290px; width: 98%;"></div>
+                                <br></br>
+                                <div id="chartContainer4" style="height: 290px; width: 33%;display: inline-block;"></div>
+                                <div id="chartContainer5" style="height: 290px; width: 33%;display: inline-block;"></div>
+                                <div id="chartContainer6" style="height: 290px; width: 33%;display: inline-block;"></div>
                                 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
                             </tbody>
                         </table>
@@ -161,10 +371,11 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+
+<!-- <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">대구광역시 학교 및 학생 개요</h6>
+            <h6 class="m-0 font-weight-bold text-primary">국가별 수입·수출 현황</h6>
         </div>
         <div class="card-body">
             
@@ -172,8 +383,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>학교 수 분포</th>
-                            <th>학생 수 분포</th>
+                            <th>수출</th>
+                            <th>수입</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -192,7 +403,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
