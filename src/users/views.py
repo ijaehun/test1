@@ -65,76 +65,157 @@ class ChartsView(APIView):
 
 class TablesView(APIView):
     def get(self, request, *args, **kwargs):
-        results = schooldata_by_professer_babies.objects.all()
-        return render(request, "theme/tables.html", {'results':results})
+        
+        data = pd.read_csv("./적정교원산출연구/신생아수 예측.csv",encoding="utf-8-sig")
 
-    def post(self, request, *args, **kwargs):
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
 
-        return Response({'status': 200})
-
+        context = {'df': data,
+                   'series1_name': '통계청',
+                   'series2_name': '저위',
+                   'series3_name': '중위',
+                   'series4_name': 'CRU',
+                   'series5_name': 'SSM}'}
+        
+        return render(request, "theme/tables.html", context)
+        
 class TablesView1(APIView):
     def get(self, request, *args, **kwargs):
-        results = RegionModel.objects.all()
-        return render(request, "theme/tables1.html", {'results':results})
+        
+        data = pd.read_csv("./적정교원산출연구/저위추계_학생수.csv",encoding="utf-8-sig")
 
-    def post(self, request, *args, **kwargs):
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
 
-        return Response({'status': 200})    
-    
+        context = {'df': data}
+        
+        return render(request, "theme/tables1.html", context) 
+
+class TablesView1_1(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/무이동추계_학생수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+        
+        return render(request, "theme/tables1_1.html", context) 
+
 class TablesView2(APIView):
     def get(self, request, *args, **kwargs):
-        results = S.objects.all()
-        return render(request, "theme/tables2.html", {'results':results})
+        
+        data = pd.read_csv("./적정교원산출연구/중위추계_학생수.csv",encoding="utf-8-sig")
 
-    def post(self, request, *args, **kwargs):
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
 
-        return Response({'status': 200})
+        context = {'df': data}
+        
+        return render(request, "theme/tables2.html", context) 
     
 class TablesView3(APIView):
     def get(self, request, *args, **kwargs):
-        results = R1.objects.all()
-        return render(request, "theme/tables3.html", {'results':results})
+        
+        data = pd.read_csv("./적정교원산출연구/CRU_학생수.csv",encoding="utf-8-sig")
 
-    def post(self, request, *args, **kwargs):
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
 
-        return Response({'status': 200})
+        context = {'df': data}
+
+        return render(request, "theme/tables3.html", context)
     
 class TablesView4(APIView):
     def get(self, request, *args, **kwargs):
-        results = R2.objects.all()
-        return render(request, "theme/tables4.html", {'results':results})
+        
+        data = pd.read_csv("./적정교원산출연구/SSM_학생수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
 
-    def post(self, request, *args, **kwargs):
+        context = {'df': data}
 
-        return Response({'status': 200})
+        return render(request, "theme/tables4.html", context)
     
+
 class TablesView5(APIView):
     def get(self, request, *args, **kwargs):
-        results = R3.objects.all()
+        results = R6.objects.all()
         return render(request, "theme/tables5.html", {'results':results})
 
     def post(self, request, *args, **kwargs):
 
         return Response({'status': 200})
     
+class TablesView5_results(APIView):    
+        def get(self, request, *args, **kwargs):
+            schoollevel = request.GET['schoollevel']
+            prelevel = request.GET['prelevel']
+            model = request.GET['model']
+
+            df = pd.read_csv(f"./적정교원산출연구/저위/{schoollevel}_{prelevel}_{model}.csv",encoding="utf-8-sig")
+
+            list1 = [schoollevel, prelevel]
+
+            json_records = df.to_json(orient ='records')
+            data = json.loads(json_records)
+
+            return render(request, "theme/tables5_results.html", {'df': data, 'l':list1})
+    
+
+
 class TablesView6(APIView):
     def get(self, request, *args, **kwargs):
-        results = R4.objects.all()
+        results = R6.objects.all()
         return render(request, "theme/tables6.html", {'results':results})
 
     def post(self, request, *args, **kwargs):
 
         return Response({'status': 200})
     
+class TablesView6_results(APIView):    
+        def get(self, request, *args, **kwargs):
+            schoollevel = request.GET['schoollevel']
+            prelevel = request.GET['prelevel']
+            model = request.GET['model']
+
+            df = pd.read_csv(f"./적정교원산출연구/중위/{schoollevel}_{prelevel}_{model}.csv",encoding="utf-8-sig")
+
+            list1 = [schoollevel, prelevel]
+
+            json_records = df.to_json(orient ='records')
+            data = json.loads(json_records)
+
+            return render(request, "theme/tables6_results.html", {'df': data, 'l':list1})
+
+
 class TablesView7(APIView):
     def get(self, request, *args, **kwargs):
-        results = R5.objects.all()
+        results = R6.objects.all()
         return render(request, "theme/tables7.html", {'results':results})
 
     def post(self, request, *args, **kwargs):
 
         return Response({'status': 200})
     
+class TablesView7_results(APIView):    
+        def get(self, request, *args, **kwargs):
+            schoollevel = request.GET['schoollevel']
+            prelevel = request.GET['prelevel']
+
+            df = pd.read_csv(f"./적정교원산출연구/CRU/{schoollevel}_{prelevel}.csv",encoding="utf-8-sig")
+
+            list1 = [schoollevel, prelevel]
+
+            json_records = df.to_json(orient ='records')
+            data = json.loads(json_records)
+
+            return render(request, "theme/tables7_results.html", {'df': data, 'l':list1})
+
+
 class TablesView8(APIView):
     def get(self, request, *args, **kwargs):
         results = R6.objects.all()
@@ -144,11 +225,322 @@ class TablesView8(APIView):
 
         return Response({'status': 200})
     
+
+class TablesView8_results(APIView):    
+        def get(self, request, *args, **kwargs):
+            schoollevel = request.GET['schoollevel']
+            prelevel = request.GET['prelevel']
+
+            df = pd.read_csv(f"./적정교원산출연구/SSM/{schoollevel}_{prelevel}.csv",encoding="utf-8-sig")
+
+            list1 = [schoollevel, prelevel]
+
+            json_records = df.to_json(orient ='records')
+            data = json.loads(json_records)
+
+            return render(request, "theme/tables8_results.html", {'df': data, 'l':list1})
+
+
+class TablesView9(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/학급수/초등학교_중위추계_학급수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+
+        return render(request, "theme/tables9.html", context)
+
+class TablesView10(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/학급수/초등학교_CRU_학급수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+
+        return render(request, "theme/tables10.html", context)
+
     
+class TablesView11(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/학급수/초등학교_SSM_학급수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+
+        return render(request, "theme/tables11.html", context)
+
+
+class TablesView12(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/학급수/중학교_중위추계_학급수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+
+        return render(request, "theme/tables12.html", context)
+    
+class TablesView13(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/학급수/중학교_CRU_학급수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+
+        return render(request, "theme/tables13.html", context)
+    
+class TablesView14(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/학급수/중학교_SSM_학급수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+
+        return render(request, "theme/tables14.html", context)
+    
+class TablesView15(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/학급수/고등학교_중위추계_학급수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+
+        return render(request, "theme/tables15.html", context)
+    
+class TablesView16(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/학급수/고등학교_CRU_학급수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+
+        return render(request, "theme/tables16.html", context)
+    
+
+class TablesView17(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/학급수/고등학교_SSM_학급수.csv",encoding="utf-8-sig")
+        
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+
+        context = {'df': data}
+
+        return render(request, "theme/tables17.html", context)
+
+
+class TablesView18(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/교원수/초등학교_중위추계_교원수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/tables18.html", context)
+
+
+class TablesView19(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/교원수/초등학교_CRU_교원수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/tables19.html", context)
+
+
+class TablesView20(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/교원수/초등학교_SSM_교원수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/tables20.html", context)
+
+
+class TablesView21(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/교원수/중학교_중위추계_교원수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/tables21.html", context)
+
+
+class TablesView22(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/교원수/중학교_CRU_교원수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/tables22.html", context)
+    
+
+class TablesView23(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/교원수/중학교_SSM_교원수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/tables23.html", context)  
+
+
+class TablesView24(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/교원수/고등학교_중위추계_교원수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/tables24.html", context)
+
+class TablesView25(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/교원수/고등학교_CRU_교원수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/tables25.html", context)
+
+class TablesView26(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/교원수/고등학교_SSM_교원수.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/tables26.html", context)        
+
+        
+
+class uTablesView17_1(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/utables17_1.html", context)
+
+class uTablesView18_1(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/utables18_1.html", context)
+
+class uTablesView19_1(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/utables19_1.html", context)
+
+class uTablesView20_1(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/utables20_1.html", context)
+
+class uTablesView21_1(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/utables21_1.html", context)
+
+class uTablesView22_1(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/utables22_1.html", context)
+
+class uTablesView23_1(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/utables23_1.html", context)                                
+
+
+class uTablesView24_1(APIView):
+    def get(self, request, *args, **kwargs):
+        
+        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
+
+        json_records = data.reset_index().to_json(orient ='records')
+        data = json.loads(json_records)
+        context = {'df': data}
+        return render(request, "theme/utables24_1.html", context)
+
+
+
+
 class simulation_count_url(APIView):
     def get(self, request):
         
         return render(request, 'theme/simulation_count_url.html',{})
+
+        
 
 class simulation_count_results_url(APIView):
     
@@ -263,6 +655,57 @@ class simulation_count_results_url(APIView):
 
         return render(request, "theme/simulation_count_results_url.html", context)
 
+# class simulation_close_url(APIView):
+#     def get(self, request, *args, **kwargs):
+#         results = R6.objects.all()
+#         return render(request, "theme/simulation_close_url.html", {'results':results})
+
+#     def post(self, request, *args, **kwargs):
+
+#         return Response({'status': 200})
+
+# class simulation_close_results_url(APIView):
+    
+#     def get(self, request, *args, **kwargs):
+#         schoollevel = request.GET['schoollevel']
+#         prelevel = request.GET['prelevel']
+#         start_num = request.GET['start_num']
+        
+#         end_num = int(start_num) + 9
+#         end_num = "년" + str(end_num)
+#         start_num = "년" + str(start_num)
+        
+#         df = pd.read_csv("./예측인원.csv",encoding="utf-8-sig")
+#         data1 = df[(df["학교유형"]==schoollevel)&(df["예측유형"]==prelevel)]
+#         data2 = data1.loc[:,"학교명"]
+#         data3 = data1.loc[:,start_num:end_num]
+#         data4 = data1.loc[:,"SIG_KOR_NM"]
+#         data5 = data1.loc[:,"SIG_CD"]
+
+#         data = pd.concat([data2,data3,data4,data5],axis=1)
+
+#         results = []
+
+#         for i in range(len(data3.columns)):
+#             ff = data[data[data3.columns[i]]==0]["학교명"].count()
+#             results.append(ff)        
+
+#         data = pd.DataFrame(results).T
+
+#         ff = []
+        
+#         for i in range(len(data3.columns)):
+#             ff.append("필요교원수"+f"{i}")
+        
+
+#         data.columns = ff
+
+#         json_records = data.to_json(orient ='records')
+#         data = json.loads(json_records)
+#         context = {'df': data}
+        
+#         return render(request, "theme/simulation_close_results_url.html", context)
+
 class simulation_close_url(APIView):
     def get(self, request, *args, **kwargs):
         results = R6.objects.all()
@@ -273,48 +716,64 @@ class simulation_close_url(APIView):
         return Response({'status': 200})
 
 class simulation_close_results_url(APIView):
-    
+
     def get(self, request, *args, **kwargs):
         schoollevel = request.GET['schoollevel']
         prelevel = request.GET['prelevel']
-        start_num = request.GET['start_num']
         
-        end_num = int(start_num) + 9
-        end_num = "년" + str(end_num)
-        start_num = "년" + str(start_num)
+        df = pd.read_csv(f"./적정교원산출연구/05. 적정교원배치결과/{schoollevel}_{prelevel}.csv",encoding="utf-8-sig")
+        list1 = [schoollevel, prelevel]
         
-        df = pd.read_csv("./예측인원.csv",encoding="utf-8-sig")
-        data1 = df[(df["학교유형"]==schoollevel)&(df["예측유형"]==prelevel)]
-        data2 = data1.loc[:,"학교명"]
-        data3 = data1.loc[:,start_num:end_num]
-        data4 = data1.loc[:,"SIG_KOR_NM"]
-        data5 = data1.loc[:,"SIG_CD"]
-
-        data = pd.concat([data2,data3,data4,data5],axis=1)
-
-        results = []
-
-        for i in range(len(data3.columns)):
-            ff = data[data[data3.columns[i]]==0]["학교명"].count()
-            results.append(ff)        
-
-        data = pd.DataFrame(results).T
-
-        ff = []
-        
-        for i in range(len(data3.columns)):
-            ff.append("필요교원수"+f"{i}")
-        
-
-        data.columns = ff
-
-        json_records = data.to_json(orient ='records')
+        json_records = df.to_json(orient ='records')
         data = json.loads(json_records)
-        context = {'df': data}
+
+        return render(request, "theme/simulation_close_results_url.html", {'df': data, 'l':list1})
+    
+
+    
+# class simulation_close_results_url(APIView):
+    
+#     def get(self, request, *args, **kwargs):
+#         schoollevel = request.GET['schoollevel']
+#         prelevel = request.GET['prelevel']
+#         start_num = request.GET['start_num']
         
-        return render(request, "theme/simulation_close_results_url.html", context)
+#         end_num = int(start_num) + 9
+#         end_num = "년" + str(end_num)
+#         start_num = "년" + str(start_num)
+        
+#         df = pd.read_csv("./예측인원.csv",encoding="utf-8-sig")
+#         data1 = df[(df["학교유형"]==schoollevel)&(df["예측유형"]==prelevel)]
+#         data2 = data1.loc[:,"학교명"]
+#         data3 = data1.loc[:,start_num:end_num]
+#         data4 = data1.loc[:,"SIG_KOR_NM"]
+#         data5 = data1.loc[:,"SIG_CD"]
 
+#         data = pd.concat([data2,data3,data4,data5],axis=1)
 
+#         results = []
+
+#         for i in range(len(data3.columns)):
+#             ff = data[data[data3.columns[i]]==0]["학교명"].count()
+#             results.append(ff)        
+
+#         data = pd.DataFrame(results).T
+
+#         ff = []
+        
+#         for i in range(len(data3.columns)):
+#             ff.append("필요교원수"+f"{i}")
+        
+
+#         data.columns = ff
+
+#         json_records = data.to_json(orient ='records')
+#         data = json.loads(json_records)
+#         context = {'df': data}
+        
+#         return render(request, "theme/simulation_close_results_url.html", context)
+      
+   
 class IndexView(APIView):
     def visualize_csv(request):
     # CSV 파일 경로 설정
@@ -467,25 +926,25 @@ class Map_View(APIView): #시각화 날리는
         
         data = pd.read_csv("./test2.csv")
         data['일3년'] = data['일3년'].astype(object)
-        m = folium.Map(location=[35.85788, 128.58918], zoom_start=1)
+        m = folium.Map(location=[35.85788, 128.58918], zoom_start=9)
 
-        # cp = folium.Choropleth(geo_data=gdf,
-        #                   name="2010",
-        #                   data=data,
-        #                   key_on='feature.properties.SIG_CD',
-        #                   columns=['SIG_CD', '일3년'],
-        #                   fill_color='YlOrRd',
-        #                   fill_opacity=0.5,
-        #                   line_opacity=0.7,
-        #                   legend_name='학교수',
-        #                   highlight=True).add_to(m)
+        cp = folium.Choropleth(geo_data=gdf,
+                          name="2010",
+                          data=data,
+                          key_on='feature.properties.SIG_CD',
+                          columns=['SIG_CD', '일3년'],
+                          fill_color='YlOrRd',
+                          fill_opacity=0.5,
+                          line_opacity=0.7,
+                          legend_name='학교수',
+                          highlight=True).add_to(m)
         
-        # data_indexed = data.set_index('SIG_KOR_NM')
+        data_indexed = data.set_index('SIG_KOR_NM')
 
-        # for s in cp.geojson.data['features']:
-        #      s['properties']['2010년'] = data_indexed.loc[s['properties']['SIG_KOR_NM'], '일3년']
+        for s in cp.geojson.data['features']:
+             s['properties']['2010년'] = data_indexed.loc[s['properties']['SIG_KOR_NM'], '일3년']
   
-        # folium.GeoJsonTooltip(['SIG_KOR_NM', '2010년']).add_to(cp.geojson)
+        folium.GeoJsonTooltip(['SIG_KOR_NM', '2010년']).add_to(cp.geojson)
         
         # 툴팁(hover) 추가
         # folium.GeoJsonTooltip(
@@ -507,25 +966,25 @@ class Map_View2(APIView): #인덱스
         
         data = pd.read_csv("./test2.csv")
         data['일3년'] = data['일3년'].astype(object)
-        m = folium.Map(location=[35.85788, 128.58918], zoom_start=1)
+        m = folium.Map(location=[35.85788, 128.58918], zoom_start=9)
 
-        # cp = folium.Choropleth(geo_data=gdf,
-        #                   name="2010",
-        #                   data=data,
-        #                   key_on='feature.properties.SIG_CD',
-        #                   columns=['SIG_CD', '일3년'],
-        #                   fill_color='YlOrRd',
-        #                   fill_opacity=0.5,
-        #                   line_opacity=0.7,
-        #                   legend_name='학교수',
-        #                   highlight=True).add_to(m)
+        cp = folium.Choropleth(geo_data=gdf,
+                          name="2010",
+                          data=data,
+                          key_on='feature.properties.SIG_CD',
+                          columns=['SIG_CD', '일3년'],
+                          fill_color='YlOrRd',
+                          fill_opacity=0.5,
+                          line_opacity=0.7,
+                          legend_name='학교수',
+                          highlight=True).add_to(m)
         
-        # data_indexed = data.set_index('SIG_KOR_NM')
+        data_indexed = data.set_index('SIG_KOR_NM')
 
-        # for s in cp.geojson.data['features']:
-        #      s['properties']['2010년'] = data_indexed.loc[s['properties']['SIG_KOR_NM'], '일3년']
+        for s in cp.geojson.data['features']:
+             s['properties']['2010년'] = data_indexed.loc[s['properties']['SIG_KOR_NM'], '일3년']
   
-        # folium.GeoJsonTooltip(['SIG_KOR_NM', '2010년']).add_to(cp.geojson)
+        folium.GeoJsonTooltip(['SIG_KOR_NM', '2010년']).add_to(cp.geojson)
         
         # 툴팁(hover) 추가
         # folium.GeoJsonTooltip(
@@ -541,21 +1000,3 @@ class Map_View2(APIView): #인덱스
 
         return render(request, "theme/index.html", {'map':m})
     
-class TablesexpView(APIView):
-    def get(self, request, *args, **kwargs):
-        results = schooldata_by_professer_babies.objects.all()
-        return render(request, "theme/tables_exp.html", {'results':results})
-
-    def post(self, request, *args, **kwargs):
-
-        return Response({'status': 200})
-
-class TablesimpView(APIView):
-    def get(self, request, *args, **kwargs):
-        results = schooldata_by_professer_babies.objects.all()
-        return render(request, "theme/tables_imp.html", {'results':results})
-
-    def post(self, request, *args, **kwargs):
-
-        return Response({'status': 200})
-        

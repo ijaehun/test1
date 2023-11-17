@@ -12,8 +12,8 @@
 {% block container_fluid %}
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">학생 수 예측</h1>
-    <p class="mb-4">대구광역시 10개년 학생 수 예측</p>
+    <h1 class="h3 mb-2 text-gray-800">중위추계 기반 학생수 추계</h1>
+    <p class="mb-4">대구광역시 초중고 중위추계 기반 학생 수 추계(2023년 ~ 2042년)</p>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <!-- <div class="card-header py-3">
@@ -24,27 +24,55 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>학교명</th>
-                            <th>학교종류</th>
-                            <th>학년구분</th>
-                            <th>행정구</th>
-                            <th>2024년</th>
-                            <th>2025년</th>
-                            <th>2026년</th>
+                            <th>분류</th>
+                            <th>2023</th>
+                            <th>2024</th>
+                            <th>2025</th>
+                            <th>2026</th>
+                            <th>2027</th>
+                            <th>2028</th>
+                            <th>2029</th>
+                            <th>2030</th>
+                            <th>2031</th>
+                            <th>2032</th>
+                            <th>2033</th>
+                            <th>2034</th>
+                            <th>2035</th>
+                            <th>2036</th>
+                            <th>2037</th>
+                            <th>2038</th>
+                            <th>2039</th>
+                            <th>2040</th>
+                            <th>2041</th>
+                            <th>2042</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for db in results %}
+                        {% for db in df %}
                             <tr>
-                                <td>{{ db.학교명 }}</td>
-                                <td>{{ db.학교종류 }}</td>
-                                <td>{{ db.학년구분 }}</td>
-                                <td>{{ db.행정구 }}</td>
-                                <td>{{ db.nt }}</td>
-                                <td>{{ db.nnt }}</td>
-                                <td>{{ db.nnnt }}</td>
+                                <td>{{ db.연도 }}</td>
+                                <td>{{ db.2023 }}</td>
+                                <td>{{ db.2024 }}</td>
+                                <td>{{ db.2025 }}</td>
+                                <td>{{ db.2026 }}</td>
+                                <td>{{ db.2027 }}</td>
+                                <td>{{ db.2028 }}</td>
+                                <td>{{ db.2029 }}</td>
+                                <td>{{ db.2030 }}</td>
+                                <td>{{ db.2031 }}</td>
+                                <td>{{ db.2032 }}</td>
+                                <td>{{ db.2033 }}</td>
+                                <td>{{ db.2034 }}</td>
+                                <td>{{ db.2035 }}</td>
+                                <td>{{ db.2036 }}</td>
+                                <td>{{ db.2037 }}</td>
+                                <td>{{ db.2038 }}</td>
+                                <td>{{ db.2039 }}</td>
+                                <td>{{ db.2040 }}</td>
+                                <td>{{ db.2041 }}</td>
+                                <td>{{ db.2042 }}</td>
                             </tr>
-                        {% endfor %}                      
+                        {% endfor %}                               
                     </tbody>
                     </tfoot>
                 </table>

@@ -3,10 +3,10 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index_url' %}">
-        <img src="https://i.ibb.co/GTKZCFK/sub010501-symbol1.png" class="img-fluid transparency-grid" ondragstart="return false;" data-hj-suppress="true" data-v-1ab68894="" style="max-width: 35%; height: auto;">
+        <img src="https://ifh.cc/g/vkqOqt.png" class="img-fluid transparency-grid" ondragstart="return false;" data-hj-suppress="true" data-v-1ab68894="" style="max-width: 35%; height: auto;">
         <div class="sidebar-brand-text mx-3"></div>
       </a>
-      
+
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -47,50 +47,131 @@
           <span>대시보드</span></a>
       </li>
             
-      <!-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="{% url 'users:tables_url' %}">
           <i class="fas fa-fw fa-table"></i>
-          <span>수산물 수입·수출 예측</span></a>
-      </li> -->
+          <span>신생아수 예측</span></a>
+      </li>
 
-      
-
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities1" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-table"></i>
-          <span>지역별 예측</span>
+          <span>학생 수 예측</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">학교별</h6>
+            <a class="collapse-item" href="{% url 'users:tables1_url' %}">저위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables1_1_url' %}">무이동추계</a>
+            <a class="collapse-item" href="{% url 'users:tables2_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables3_url' %}">CRU 모델</a>
+            <a class="collapse-item" href="{% url 'users:tables4_url' %}">SSM 모델</a>
+          </div>
+        </div>
+        <div id="collapseUtilities1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">지역별</h6>
+            <a class="collapse-item" href="{% url 'users:tables5_url' %}">저위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables6_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables7_url' %}">CRU 모델</a>
+            <a class="collapse-item" href="{% url 'users:tables8_url' %}">SSM 모델</a>
+          </div>
+        </div>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-table"></i>
+          <span>학급 수 산정</span>
+        </a>
+        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">초등학교</h6>
-            <a class="collapse-item" href="{% url 'users:tables3_url' %}">1학년</a>
-            <a class="collapse-item" href="{% url 'users:tables4_url' %}">2학년</a>
-            <a class="collapse-item" href="{% url 'users:tables5_url' %}">3학년</a>
-            <a class="collapse-item" href="{% url 'users:tables6_url' %}">4학년</a>
-            <a class="collapse-item" href="{% url 'users:tables7_url' %}">5학년</a>
-            <a class="collapse-item" href="{% url 'users:tables8_url' %}">6학년</a>
+            <a class="collapse-item" href="{% url 'users:tables9_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables10_url' %}">CRU 모델</a>
+            <a class="collapse-item" href="{% url 'users:tables11_url' %}">SSM 모델</a>
           </div>
         </div>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">중학교</h6>
-            <a class="collapse-item" href="{% url 'users:tables3_url' %}">1학년</a>
-            <a class="collapse-item" href="{% url 'users:tables4_url' %}">2학년</a>
-            <a class="collapse-item" href="{% url 'users:tables5_url' %}">3학년</a>
+            <a class="collapse-item" href="{% url 'users:tables12_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables13_url' %}">CRU 모델</a>
+            <a class="collapse-item" href="{% url 'users:tables14_url' %}">SSM 모델</a>
           </div>
         </div>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">고등학교</h6>
-            <a class="collapse-item" href="{% url 'users:tables3_url' %}">1학년</a>
-            <a class="collapse-item" href="{% url 'users:tables4_url' %}">2학년</a>
-            <a class="collapse-item" href="{% url 'users:tables5_url' %}">3학년</a>
+            <a class="collapse-item" href="{% url 'users:tables15_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables16_url' %}">CRU 모델</a>
+            <a class="collapse-item" href="{% url 'users:tables17_url' %}">SSM 모델</a>
           </div>
         </div>
-      </li> -->
+      </li>
 
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-table"></i>
+          <span>교원 수 산정</span>
+        </a>
+        <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">초등학교</h6>
+            <a class="collapse-item" href="{% url 'users:tables18_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables19_url' %}">CRU 모델</a>
+            <a class="collapse-item" href="{% url 'users:tables20_url' %}">SSM 모델</a>
+          </div>
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">중학교</h6>
+            <a class="collapse-item" href="{% url 'users:tables21_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables22_url' %}">CRU 모델</a>
+            <a class="collapse-item" href="{% url 'users:tables23_url' %}">SSM 모델</a>
+          </div>
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">고등학교</h6>
+            <a class="collapse-item" href="{% url 'users:tables24_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables25_url' %}">CRU 모델</a>
+            <a class="collapse-item" href="{% url 'users:tables26_url' %}">SSM 모델</a>
+          </div>
+        </div>
+        
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'users:simulation_close_url' %}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>적정 교원 배치 계획</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities4" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-table"></i>
+          <span>교통 인프라 분석</span>
+        </a>
+        <div id="collapseUtilities4" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">지역별</h6>
+            <a class="collapse-item" href="{% url 'users:utables17_1_url' %}">남구</a>
+            <a class="collapse-item" href="{% url 'users:utables18_1_url' %}">달서구</a>
+            <a class="collapse-item" href="{% url 'users:utables19_1_url' %}">달성군</a>
+            <a class="collapse-item" href="{% url 'users:utables20_1_url' %}">동구</a>
+            <a class="collapse-item" href="{% url 'users:utables21_1_url' %}">북구</a>
+            <a class="collapse-item" href="{% url 'users:utables22_1_url' %}">서구</a>
+            <a class="collapse-item" href="{% url 'users:utables23_1_url' %}">수성구</a>
+            <a class="collapse-item" href="{% url 'users:utables24_1_url' %}">중구</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="{% url 'users:map_view_url' %}">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>시각화</span></a>
+      </li> -->
+      
       <!-- Divider -->
       <!-- <hr class="sidebar-divider"> -->
 
@@ -138,32 +219,9 @@
       </li> -->
       
       <!-- Nav Item - Tables -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="{% url 'users:tables2_url' %}">
-          <i class="fas fa-fw fa-table"></i>
-          <span>학생 수 예측</span></a>
-      </li> -->
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>수산물 가격 예측</span>
-        </a>
-          <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="{% url 'users:tables_exp_url' %}">명태 가격 예측</a>
-              <a class="collapse-item" href="{% url 'users:tables_imp_url' %}">고등어 가격 예측</a>
-            </div>
-          </div>
-      </li>
 
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'users:map_view_url' %}">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>시각화</span></a>
-      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

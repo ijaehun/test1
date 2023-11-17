@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load staticfiles %}
 
 {% block title %} Tables {% endblock %}
 
@@ -12,8 +13,7 @@
 {% block container_fluid %}
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">폐교 산출 시뮬레이션</h1>
-    <p class="h4 mb-2  text-gray-800">결과</p>
+    <h1 class="h3 mb-2 text-gray-800">{{ l.0 }} / {{ l.1 }}명 적정 교원 배치 계획</h1>
     <div class="card shadow mb-4">
         <!-- <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
@@ -23,47 +23,60 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>  
-                            <th>1년</th>
-                            <th>2년</th>
-                            <th>3년</th>
-                            <th>4년</th>
-                            <th>5년</th>
-                            <th>6년</th>
-                            <th>7년</th>
-                            <th>8년</th>
-                            <th>9년</th>
-                            <th>10년</th>
+                            <th>년도</th>
+                            <th>교원 수</th>
+                            <th>퇴직 수</th>
+                            <th>충원 수</th>
+                            <th>충원 대비 퇴직 비</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for db in df %}
                         <tr> 
-                            <td>{{ db.필요교원수0 }}</td>
-                            <td>{{ db.필요교원수1 }}</td>
-                            <td>{{ db.필요교원수2 }}</td>
-                            <td>{{ db.필요교원수3 }}</td>
-                            <td>{{ db.필요교원수4 }}</td>
-                            <td>{{ db.필요교원수5 }}</td>
-                            <td>{{ db.필요교원수6 }}</td>
-                            <td>{{ db.필요교원수7 }}</td>
-                            <td>{{ db.필요교원수8 }}</td>
-                            <td>{{ db.필요교원수9 }}</td> 
+                            <td>{{ db.년도 }}</td>
+                            <td>{{ db.교원수 }}</td>
+                            <td>{{ db.퇴직수 }}</td>
+                            <td>{{ db.충원수 }}</td>
+                            <td>{{ db.충원대비퇴직비 }}</td>
                         </tr>
                         {% endfor %}    
                     </tbody>
                 </table>
+
+                <br>
+                <br>
+                <div>
+                <p class="h4 mb-2  text-gray-800">2024년 교원 연령별 분포</p>
+                <img src="{% static '/resource/img/' %}{{ l.0 }}_{{ l.1 }}/2024_1.png" alt="tt">
+                <img src="{% static '/resource/img/' %}{{ l.0 }}_{{ l.1 }}/2024_2.png" alt="tt">
+                </div>
+                <br>
+                <p class="h4 mb-2  text-gray-800">2042년 교원 연령별 분포</p>
+                <div>
+                <img src="{% static '/resource/img/' %}{{ l.0 }}_{{ l.1 }}/2042_1.png" alt="tt">
+                <img src="{% static '/resource/img/' %}{{ l.0 }}_{{ l.1 }}/2042_2.png" alt="tt">
+                </div>
+                <br>
+                <p class="h4 mb-2  text-gray-800">2052년 교원 연령별 분포</p>
+                <div>
+                <img src="{% static '/resource/img/' %}{{ l.0 }}_{{ l.1 }}/2052_1.png" alt="tt">
+                <img src="{% static '/resource/img/' %}{{ l.0 }}_{{ l.1 }}/2052_2.png" alt="tt">
+                </div>
+                <br>
+                <p class="h4 mb-2  text-gray-800">2062년 교원 연령별 분포</p>
+                <div>
+                <img src="{% static '/resource/img/' %}{{ l.0 }}_{{ l.1 }}/2062_1.png" alt="tt">
+                <img src="{% static '/resource/img/' %}{{ l.0 }}_{{ l.1 }}/2062_2.png" alt="tt">
+                </div>
             </div>
         </div>
     </div>
 </div>
 {% endblock %}
 
-
 {% block js_body %}
 <!-- Data Tables -->
 <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
 <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
 <script src="{% static 'js/demo/datatables-demo.js' %}"></script>
-
 {% endblock %}
-

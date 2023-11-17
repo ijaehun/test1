@@ -17,7 +17,7 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">수산물 수입·수출 개요</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">대구광역시 학교 및 학생 개요</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -31,337 +31,874 @@
                                         var chart1 = new CanvasJS.Chart("chartContainer1", {
                                             animationEnabled: true,
                                             title: {
-                                                text: "어종별 수입 현황",
+                                                text: "총 학교 수",
                                                 fontSize: 25,
                                             },
                                             axisX: {
                                                 valueFormatString: "YYYY"
                                             },
                                             axisY: {
-                                            title: "수입량",
+                                            title: "학교 수",
                                             valueFormatString: "0",
-                                            suffix: "백만",
+                                            suffix: "개",
                                             reverse: false,
                                             minimum: 0 // y축 시작점을 0으로 설정
-                                        },
+                                            },
                                             toolTip: {
                                                 shared: true
                                             },
                                             legend: {
                                                 cursor: "pointer",
-                                                itemclick: toggleDataSeries
+                                                itemclick: toggleDataSeries1
                                             },
                                             data: [
                                                 {
                                                     type: "stackedColumn",
-                                                    name: "명태",
+                                                    name: "초등학교",
                                                     showInLegend: "true",
-                                                    yValueFormatString: "##### 백만",
+                                                    yValueFormatString: "### 개",
                                                     xValueFormatString: "YYYY",
                                                     dataPoints: [
-                                                        { label: "2013년", y: 235 },
-                                                        { label: "2014년", y: 217 },
-                                                        { label: "2015년", y: 230 },
-                                                        { label: "2016년", y: 258 },
-                                                        { label: "2017년", y: 262 },
-                                                        { label: "2018년", y: 257 },
-                                                        { label: "2019년", y: 184 },
-                                                        { label: "2020년", y: 212 },
-                                                        { label: "2021년", y: 323 },
-                                                        { label: "2022년", y: 240 }
+                                                        { label: "2016년", y: 225 },
+                                                        { label: "2017년", y: 228 },
+                                                        { label: "2018년", y: 229 },
+                                                        { label: "2019년", y: 229 },
+                                                        { label: "2020년", y: 230 },
+                                                        { label: "2021년", y: 232 },
+                                                        { label: "2022년", y: 233 }
                                                     ]
                                                 },
                                                 {
                                                     type: "stackedColumn",
-                                                    name: "고등어",
+                                                    name: "중학교",
                                                     showInLegend: "true",
-                                                    yValueFormatString: "##### 백만",
+                                                    yValueFormatString: "### 개",
                                                     xValueFormatString: "YYYY",
                                                     dataPoints: [
-                                                        { label: "2013년", y: 19 },
-                                                        { label: "2014년", y: 36 },
-                                                        { label: "2015년", y: 54 },
-                                                        { label: "2016년", y: 50 },
-                                                        { label: "2017년", y: 53 },
-                                                        { label: "2018년", y: 51 },
-                                                        { label: "2019년", y: 52 },
-                                                        { label: "2020년", y: 55 },
-                                                        { label: "2021년", y: 64 },
-                                                        { label: "2022년", y: 45 }
+                                                        { label: "2016년", y: 125 },
+                                                        { label: "2017년", y: 125 },
+                                                        { label: "2018년", y: 125 },
+                                                        { label: "2019년", y: 124 },
+                                                        { label: "2020년", y: 123 },
+                                                        { label: "2021년", y: 125 },
+                                                        { label: "2022년", y: 125 }
                                                     ]
                                                 },
                                                 {
                                                     type: "stackedColumn",
-                                                    name: "갈치",
+                                                    name: "고등학교",
                                                     showInLegend: "true",
-                                                    yValueFormatString: "##### 백만",
+                                                    yValueFormatString: "### 개",
                                                     xValueFormatString: "YYYY",
                                                     dataPoints: [
-                                                        { label: "2013년", y: 29 },
-                                                        { label: "2014년", y: 27 },
-                                                        { label: "2015년", y: 28 },
-                                                        { label: "2016년", y: 28 },
-                                                        { label: "2017년", y: 23 },
-                                                        { label: "2018년", y: 18 },
-                                                        { label: "2019년", y: 15 },
-                                                        { label: "2020년", y: 19 },
-                                                        { label: "2021년", y: 15 },
-                                                        { label: "2022년", y: 7 }
-                                                    ]
-                                                },
-                                                
-                                            ]
-                                        });
-                                        chart1.render();
-                            
-                                        var chart2 = new CanvasJS.Chart("chartContainer2", {
-                                            animationEnabled: true,
-                                            title: {
-                                                text: "어종별 수출 현황",
-                                                fontSize: 25,
-                                            },
-                                            axisX: {
-                                                valueFormatString: "YYYY"
-                                            },
-                                            axisY: {
-                                            title: "수출량",
-                                            valueFormatString: "0",
-                                            suffix: "백만",
-                                            reverse: false,
-                                            minimum: 0 // y축 시작점을 0으로 설정
-                                        },
-                                            toolTip: {
-                                                shared: true
-                                            },
-                                            legend: {
-                                                cursor: "pointer",
-                                                itemclick: toggleDataSeries
-                                            },
-                                            data: [
-                                                {
-                                                    type: "stackedColumn",
-                                                    name: "명태",
-                                                    showInLegend: "true",
-                                                    yValueFormatString: "### 수",
-                                                    xValueFormatString: "YYYY",
-                                                    dataPoints: [
-                                                        { label: "2013년", y: 46 },
-                                                        { label: "2014년", y: 23 },
-                                                        { label: "2015년", y: 8 },
-                                                        { label: "2016년", y: 15 },
-                                                        { label: "2017년", y: 8 },
-                                                        { label: "2018년", y: 10 },
-                                                        { label: "2019년", y: 12 },
-                                                        { label: "2020년", y: 5 },
-                                                        { label: "2021년", y: 140 },
-                                                        { label: "2022년", y: 139 }
-                                                    ]
-                                                },
-                                                {
-                                                    type: "stackedColumn",
-                                                    name: "고등어",
-                                                    showInLegend: "true",
-                                                    yValueFormatString: "### 수",
-                                                    xValueFormatString: "YYYY",
-                                                    dataPoints: [
-                                                        { label: "2013년", y: 40 },
-                                                        { label: "2014년", y: 23 },
-                                                        { label: "2015년", y: 26 },
-                                                        { label: "2016년", y: 21 },
-                                                        { label: "2017년", y: 17 },
-                                                        { label: "2018년", y: 70 },
-                                                        { label: "2019년", y: 45 },
-                                                        { label: "2020년", y: 36 },
-                                                        { label: "2021년", y: 34 },
-                                                        { label: "2022년", y: 44 }
-                                                    ]
-                                                },
-                                                {
-                                                    type: "stackedColumn",
-                                                    name: "갈치",
-                                                    showInLegend: "true",
-                                                    yValueFormatString: "### 수",
-                                                    xValueFormatString: "YYYY",
-                                                    dataPoints: [
-                                                        { label: "2013년", y: 7 },
-                                                        { label: "2014년", y: 4 },
-                                                        { label: "2015년", y: 1 },
-                                                        { label: "2016년", y: 1 },
-                                                        { label: "2017년", y: 2 },
-                                                        { label: "2018년", y: 1 },
-                                                        { label: "2019년", y: 2 },
-                                                        { label: "2020년", y: 4 },
-                                                        { label: "2021년", y: 3 },
-                                                        { label: "2022년", y: 3 }
+                                                        { label: "2016년", y: 92 },
+                                                        { label: "2017년", y: 93 },
+                                                        { label: "2018년", y: 93 },
+                                                        { label: "2019년", y: 93 },
+                                                        { label: "2020년", y: 93 },
+                                                        { label: "2021년", y: 94 },
+                                                        { label: "2022년", y: 94 }
                                                     ]
                                                 }
                                             ]
                                         });
-                                        chart2.render();
-                        
-                                        
-                                        var chart3 = new CanvasJS.Chart("chartContainer3", {
-                                            animationEnabled: true,
-                                            title:{
-                                                text: "어종별 연평균 가격 동향",
-                                                fontSize: 25,
-                                            },
-                                            axisX: {
-                                                valueFormatString: "YYYY년"
-                                            },
-                                            axisY: {
-                                                title: "가격",
-                                                suffix: " 원"
-                                            },
-                                            legend: {
-                                                    cursor: "pointer",
-                                                    itemclick: toggleDataSeries
-                                            },
-                                            toolTip:{
-                                                shared: true
-                                            },
-                                            data: [{
-                                                name: "명태",
-                                                type: "spline",
-                                                yValueFormatString: "# 원",
-                                                showInLegend: true,
-                                                dataPoints: [
-                                                    { label: "2013년", y: 2112 }, 
-                                                    { label: "2014년", y: 2155 },
-                                                    { label: "2015년", y: 2211 },
-                                                    { label: "2016년", y: 2299 },
-                                                    { label: "2017년", y: 2473 },
-                                                    { label: "2018년", y: 2581 },
-                                                    { label: "2019년", y: 2362 },
-                                                    { label: "2020년", y: 2547 },
-                                                    { label: "2021년", y: 2581 },
-                                                    { label: "2022년", y: 2936 },
-                                                ]
-                                            },
-                                            {
-                                                name: "고등어",
-                                                type: "spline",
-                                                yValueFormatString: "# 원",
-                                                showInLegend: true,
-                                                dataPoints: [
-                                                    { label: "2013년", y: 3355 }, 
-                                                    { label: "2014년", y: 3472 },
-                                                    { label: "2015년", y: 3246 },
-                                                    { label: "2016년", y: 2968 },
-                                                    { label: "2017년", y: 2923 },
-                                                    { label: "2018년", y: 2930 },
-                                                    { label: "2019년", y: 2618 },
-                                                    { label: "2020년", y: 3205 },
-                                                    { label: "2021년", y: 3483 },
-                                                    { label: "2022년", y: 4141 },
-                                                ]
-                                            },
-                                            {
-                                                name: "갈치",
-                                                type: "spline",
-                                                yValueFormatString: "# 원",
-                                                showInLegend: true,
-                                                dataPoints: [
-                                                    { label: "2013년", y: 9255 }, 
-                                                    { label: "2014년", y: 9666 },
-                                                    { label: "2015년", y: 8349 },
-                                                    { label: "2016년", y: 8310 },
-                                                    { label: "2017년", y: 9325 },
-                                                    { label: "2018년", y: 7523 },
-                                                    { label: "2019년", y: 6222 },
-                                                    { label: "2020년", y: 6819 },
-                                                    { label: "2021년", y: 7257 },
-                                                    { label: "2022년", y: 7767 },
-                                                ]
-                                            },]
-                                        });
-                                        chart3.render();
+                                        chart1.render();
 
-                                        function toggleDataSeries(e) {
+                                        function toggleDataSeries1(e) {
                                             if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
                                                 e.dataSeries.visible = false;
                                             }
                                             else {
                                                 e.dataSeries.visible = true;
                                             }
-                                            chart.render();
+                                            chart1.render();
                                         }
+                                        
+                                        //총 교원 수 
+                                        var chart2 = new CanvasJS.Chart("chartContainer2", {
+                                            animationEnabled: true,
+                                            title: {
+                                                text: "총 교원 수",
+                                                fontSize: 25,
+                                            },
+                                            axisY: {
+                                                title: "교원 수",
+                                                valueFormatString: "#,###",
+                                                suffix: "명",
+                                                minimum: 22000,
+                                                
+                                            },
+                                            data: [{
+                                                yValueFormatString: "#,### 명",
+                                                xValueFormatString: "YYYY",
+                                                type: "spline",
+                                                dataPoints: [
+                                                    { label: "2008년", y: 22547 }, 
+                                                    { label: "2009년", y: 22944 }, 
+                                                    { label: "2010년", y: 23117 }, 
+                                                    { label: "2011년", y: 23822 }, 
+                                                    { label: "2012년", y: 24117 }, 
+                                                    { label: "2013년", y: 24604 }, 
+                                                    { label: "2014년", y: 24718 },
+                                                    { label: "2015년", y: 24897 },
+                                                    { label: "2016년", y: 24961 },
+                                                    { label: "2017년", y: 24879 },
+                                                    { label: "2018년", y: 25117 },
+                                                    { label: "2019년", y: 24930 },
+                                                    { label: "2020년", y: 24541 },
+                                                    { label: "2021년", y: 24624 },
+                                                    { label: "2022년", y: 24564 },
+                                                ]
+                                            }]
+                                        });
+                                        chart2.render();
+                                        
+                                        //학생수
+                                        var chart3 = new CanvasJS.Chart("chartContainer3", {
+                                            animationEnabled: true,
+                                            title:{
+                                                text: "학생 수",
+                                                fontSize: 25,
+                                            },
+                                            axisX: {
+                                                valueFormatString: "YYYY년"
+                                            },
+                                            axisY: {
+                                                title: "학생 수",
+                                                valueFormatString: "#,###",
+                                                suffix: " 명",
+                                                minimum: 50,
+                                                maximum: 500000
+                                            },
+                                            legend: {
+                                                    cursor: "pointer",
+                                                    itemclick: toggleDataSeries3
+                                            },
+                                            toolTip:{
+                                                shared: true
+                                            },
+                                            data: [{
+                                                name: "총",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 409920 }, 
+                                                    { label: "2009년", y: 398723 }, 
+                                                    { label: "2010년", y: 384930 }, 
+                                                    { label: "2011년", y: 368376 }, 
+                                                    { label: "2012년", y: 351183 }, 
+                                                    { label: "2013년", y: 334369 }, 
+                                                    { label: "2014년", y: 319972 },
+                                                    { label: "2015년", y: 305764 },
+                                                    { label: "2016년", y: 291370 },
+                                                    { label: "2017년", y: 280265 },
+                                                    { label: "2018년", y: 269570 },
+                                                    { label: "2019년", y: 259606 },
+                                                    { label: "2020년", y: 250957 },
+                                                    { label: "2021년", y: 247137 },
+                                                    { label: "2022년", y: 242833 },
+                                                ]
+                                            },
+                                            {
+                                                name: "초등학교",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 189585 }, 
+                                                    { label: "2009년", y: 178029 }, 
+                                                    { label: "2010년", y: 167548 }, 
+                                                    { label: "2011년", y: 157693 }, 
+                                                    { label: "2012년", y: 146899 },
+                                                    { label: "2013년", y: 136309 }, 
+                                                    { label: "2014년", y: 131765 },
+                                                    { label: "2015년", y: 129583 },
+                                                    { label: "2016년", y: 125541 },
+                                                    { label: "2017년", y: 124708 },
+                                                    { label: "2018년", y: 125160 },
+                                                    { label: "2019년", y: 126122 },
+                                                    { label: "2020년", y: 122587 },
+                                                    { label: "2021년", y: 121308 },
+                                                    { label: "2022년", y: 121485 },
+                                                ]
+                                            },
+                                            {
+                                                name: "중학교",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 112708 }, 
+                                                    { label: "2009년", y: 110449 }, 
+                                                    { label: "2010년", y: 108082 }, 
+                                                    { label: "2011년", y: 102493 }, 
+                                                    { label: "2012년", y: 98316 },
+                                                    { label: "2013년", y: 94394 }, 
+                                                    { label: "2014년", y: 89291 },
+                                                    { label: "2015년", y: 80982 },
+                                                    { label: "2016년", y: 73925 },
+                                                    { label: "2017년", y: 68893 },
+                                                    { label: "2018년", y: 66165 },
+                                                    { label: "2019년", y: 62539 },
+                                                    { label: "2020년", y: 62563 },
+                                                    { label: "2021년", y: 62755 },
+                                                    { label: "2022년", y: 61975 },
+                                                ]
+                                            },
+                                            {
+                                                name: "고등학교",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 107627 }, 
+                                                    { label: "2009년", y: 110245 }, 
+                                                    { label: "2010년", y: 109300 }, 
+                                                    { label: "2011년", y: 108190 }, 
+                                                    { label: "2012년", y: 105968 },
+                                                    { label: "2013년", y: 103666 }, 
+                                                    { label: "2014년", y: 98916 },
+                                                    { label: "2015년", y: 95199 },
+                                                    { label: "2016년", y: 91904 },
+                                                    { label: "2017년", y: 86664 },
+                                                    { label: "2018년", y: 78245 },
+                                                    { label: "2019년", y: 70945 },
+                                                    { label: "2020년", y: 65807 },
+                                                    { label: "2021년", y: 63074 },
+                                                    { label: "2022년", y: 59373 },
+                                                ]
+                                            },]
+                                        });
+                                        chart3.render();
+                                        
+                                        function toggleDataSeries3(e) {
+                                            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                                                e.dataSeries.visible = false;
+                                            }
+                                            else {
+                                                e.dataSeries.visible = true;
+                                            }
+                                            chart3.render();
+                                        }
+
+                                        var chart3_1 = new CanvasJS.Chart("chartContainer3_1", {
+                                            animationEnabled: true,
+                                            title:{
+                                                text: "초등학교 학생 수",
+                                                fontSize: 25,
+                                            },
+                                            axisX: {
+                                                valueFormatString: "YYYY년"
+                                            },
+                                            axisY: {
+                                                title: "학생 수",
+                                                valueFormatString: "#,###",
+                                                suffix: " 명",
+                                                minimum: 1,
+                                                maximum: 40000
+                                            },
+                                            legend: {
+                                                    cursor: "pointer",
+                                                    itemclick: toggleDataSeries3_1
+                                            },
+                                            toolTip:{
+                                                shared: true
+                                            },
+                                            data: [{
+                                                name: "초등학교 1학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 26739 }, 
+                                                    { label: "2009년", y: 23085 }, 
+                                                    { label: "2010년", y: 23656 }, 
+                                                    { label: "2011년", y: 21894 }, 
+                                                    { label: "2012년", y: 20339 }, 
+                                                    { label: "2013년", y: 20221 }, 
+                                                    { label: "2014년", y: 22347 },
+                                                    { label: "2015년", y: 20823 },
+                                                    { label: "2016년", y: 19712 },
+                                                    { label: "2017년", y: 21018 },
+                                                    { label: "2018년", y: 21081 },
+                                                    { label: "2019년", y: 21628 },
+                                                    { label: "2020년", y: 19322 },
+                                                    { label: "2021년", y: 19618 },
+                                                    { label: "2022년", y: 19668 },
+                                                ]
+                                            },
+                                            {
+                                                name: "초등학교 2학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 30472 }, 
+                                                    { label: "2009년", y: 26801 }, 
+                                                    { label: "2010년", y: 23084 }, 
+                                                    { label: "2011년", y: 23671 }, 
+                                                    { label: "2012년", y: 21893 },
+                                                    { label: "2013년", y: 20302 }, 
+                                                    { label: "2014년", y: 20196 },
+                                                    { label: "2015년", y: 22368 },
+                                                    { label: "2016년", y: 20796 },
+                                                    { label: "2017년", y: 19723 },
+                                                    { label: "2018년", y: 20892 },
+                                                    { label: "2019년", y: 20965 },
+                                                    { label: "2020년", y: 21447 },
+                                                    { label: "2021년", y: 19234 },
+                                                    { label: "2022년", y: 19478 },
+                                                ]
+                                            },
+                                            {
+                                                name: "초등학교 3학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 30992 }, 
+                                                    { label: "2009년", y: 30618 }, 
+                                                    { label: "2010년", y: 26875 }, 
+                                                    { label: "2011년", y: 23050 }, 
+                                                    { label: "2012년", y: 23714 },
+                                                    { label: "2013년", y: 21923 }, 
+                                                    { label: "2014년", y: 20358 },
+                                                    { label: "2015년", y: 20238 },
+                                                    { label: "2016년", y: 22374 },
+                                                    { label: "2017년", y: 20815 },
+                                                    { label: "2018년", y: 19689 },
+                                                    { label: "2019년", y: 20813 },
+                                                    { label: "2020년", y: 20842 },
+                                                    { label: "2021년", y: 21439 },
+                                                    { label: "2022년", y: 19313 },
+                                                ]
+                                            },
+                                            {
+                                                name: "초등학교 4학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 31620 }, 
+                                                    { label: "2009년", y: 31182 }, 
+                                                    { label: "2010년", y: 30708 }, 
+                                                    { label: "2011년", y: 26952 }, 
+                                                    { label: "2012년", y: 23089 },
+                                                    { label: "2013년", y: 23753 }, 
+                                                    { label: "2014년", y: 21964 },
+                                                    { label: "2015년", y: 20339 },
+                                                    { label: "2016년", y: 20260 },
+                                                    { label: "2017년", y: 22374 },
+                                                    { label: "2018년", y: 20796 },
+                                                    { label: "2019년", y: 19658 },
+                                                    { label: "2020년", y: 20749 },
+                                                    { label: "2021년", y: 20778 },
+                                                    { label: "2022년", y: 21451 },
+                                                ]
+                                            },
+                                            {
+                                                name: "초등학교 5학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 34420 }, 
+                                                    { label: "2009년", y: 31781 }, 
+                                                    { label: "2010년", y: 31256 }, 
+                                                    { label: "2011년", y: 30738 }, 
+                                                    { label: "2012년", y: 26999 },
+                                                    { label: "2013년", y: 23083 }, 
+                                                    { label: "2014년", y: 23760 },
+                                                    { label: "2015년", y: 21992 },
+                                                    { label: "2016년", y: 20402 },
+                                                    { label: "2017년", y: 20326 },
+                                                    { label: "2018년", y: 22383 },
+                                                    { label: "2019년", y: 20748 },
+                                                    { label: "2020년", y: 19555 },
+                                                    { label: "2021년", y: 20731 },
+                                                    { label: "2022년", y: 20849 },
+                                                ]
+                                            },
+                                            {
+                                                name: "초등학교 6학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 35342 }, 
+                                                    { label: "2009년", y: 34562 }, 
+                                                    { label: "2010년", y: 31969 }, 
+                                                    { label: "2011년", y: 31388 }, 
+                                                    { label: "2012년", y: 30865 },
+                                                    { label: "2013년", y: 27027 }, 
+                                                    { label: "2014년", y: 23140 },
+                                                    { label: "2015년", y: 23823 },
+                                                    { label: "2016년", y: 21997 },
+                                                    { label: "2017년", y: 20452 },
+                                                    { label: "2018년", y: 20319 },
+                                                    { label: "2019년", y: 22310 },
+                                                    { label: "2020년", y: 20672 },
+                                                    { label: "2021년", y: 19508 },
+                                                    { label: "2022년", y: 20717 },
+                                                ]
+                                            },]
+                                        });
+                                        chart3_1.render();
+                                        
+                                        function toggleDataSeries3_1(e) {
+                                            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                                                e.dataSeries.visible = false;
+                                            }
+                                            else {
+                                                e.dataSeries.visible = true;
+                                            }
+                                            chart3_1.render();
+                                        }
+
+                                        var chart3_2 = new CanvasJS.Chart("chartContainer3_2", {
+                                            animationEnabled: true,
+                                            title:{
+                                                text: "중학교 학생 수",
+                                                fontSize: 25,
+                                            },
+                                            axisX: {
+                                                valueFormatString: "YYYY년"
+                                            },
+                                            axisY: {
+                                                title: "학생 수",
+                                                valueFormatString: "#,###",
+                                                suffix: " 명",
+                                                minimum: 1,
+                                                maximum: 40000
+                                            },
+                                            legend: {
+                                                    cursor: "pointer",
+                                                    itemclick: toggleDataSeries3_2
+                                            },
+                                            toolTip:{
+                                                shared: true
+                                            },
+                                            data: [{
+                                                name: "중학교 1학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 37629 }, 
+                                                    { label: "2009년", y: 35692 }, 
+                                                    { label: "2010년", y: 34841 }, 
+                                                    { label: "2011년", y: 32123 }, 
+                                                    { label: "2012년", y: 31568 }, 
+                                                    { label: "2013년", y: 30925 }, 
+                                                    { label: "2014년", y: 27092 },
+                                                    { label: "2015년", y: 23149 },
+                                                    { label: "2016년", y: 23868 },
+                                                    { label: "2017년", y: 22031 },
+                                                    { label: "2018년", y: 20413 },
+                                                    { label: "2019년", y: 20279 },
+                                                    { label: "2020년", y: 22201 },
+                                                    { label: "2021년", y: 20576 },
+                                                    { label: "2022년", y: 19409 },
+                                                ]
+                                            },
+                                            {
+                                                name: "중학교 2학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 37189 }, 
+                                                    { label: "2009년", y: 37601 }, 
+                                                    { label: "2010년", y: 35685 }, 
+                                                    { label: "2011년", y: 34747 }, 
+                                                    { label: "2012년", y: 32091 },
+                                                    { label: "2013년", y: 31451 }, 
+                                                    { label: "2014년", y: 30839 },
+                                                    { label: "2015년", y: 27043 },
+                                                    { label: "2016년", y: 23084},
+                                                    { label: "2017년", y: 23844 },
+                                                    { label: "2018년", y: 22006 },
+                                                    { label: "2019년", y: 20352 },
+                                                    { label: "2020년", y: 20123 },
+                                                    { label: "2021년", y: 22122 },
+                                                    { label: "2022년", y: 20521 },
+                                                ]
+                                            },
+                                            {
+                                                name: "중학교 3학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 37890 }, 
+                                                    { label: "2009년", y: 37156 }, 
+                                                    { label: "2010년", y: 37556 }, 
+                                                    { label: "2011년", y: 35623 }, 
+                                                    { label: "2012년", y: 34657 },
+                                                    { label: "2013년", y: 32018 }, 
+                                                    { label: "2014년", y: 31360 },
+                                                    { label: "2015년", y: 30790 },
+                                                    { label: "2016년", y: 26973 },
+                                                    { label: "2017년", y: 23018 },
+                                                    { label: "2018년", y: 23746 },
+                                                    { label: "2019년", y: 21908 },
+                                                    { label: "2020년", y: 20239 },
+                                                    { label: "2021년", y: 20057 },
+                                                    { label: "2022년", y: 22045 },
+                                                ]
+                                            },]
+                                        });
+                                        chart3_2.render();
+                                        
+                                        function toggleDataSeries3_2(e) {
+                                            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                                                e.dataSeries.visible = false;
+                                            }
+                                            else {
+                                                e.dataSeries.visible = true;
+                                            }
+                                            chart3_2.render();
+                                        }
+
+                                        var chart3_3 = new CanvasJS.Chart("chartContainer3_3", {
+                                            animationEnabled: true,
+                                            title:{
+                                                text: "고등학교 학생 수",
+                                                fontSize: 25,
+                                            },
+                                            axisX: {
+                                                valueFormatString: "YYYY년"
+                                            },
+                                            axisY: {
+                                                title: "학생 수",
+                                                valueFormatString: "#,###",
+                                                suffix: " 명",
+                                                minimum: 1,
+                                                maximum: 40000
+                                            },
+                                            legend: {
+                                                    cursor: "pointer",
+                                                    itemclick: toggleDataSeries3_3
+                                            },
+                                            toolTip:{
+                                                shared: true
+                                            },
+                                            data: [{
+                                                name: "고등학교 1학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 38010 }, 
+                                                    { label: "2009년", y: 37057 }, 
+                                                    { label: "2010년", y: 36431 }, 
+                                                    { label: "2011년", y: 36926 }, 
+                                                    { label: "2012년", y: 34946 }, 
+                                                    { label: "2013년", y: 34105 }, 
+                                                    { label: "2014년", y: 31901 },
+                                                    { label: "2015년", y: 31050 },
+                                                    { label: "2016년", y: 30623 },
+                                                    { label: "2017년", y: 26720 },
+                                                    { label: "2018년", y: 22683 },
+                                                    { label: "2019년", y: 23132 },
+                                                    { label: "2020년", y: 21383 },
+                                                    { label: "2021년", y: 19778 },
+                                                    { label: "2022년", y: 19524 },
+                                                ]
+                                            },
+                                            {
+                                                name: "고등학교 2학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 36591 }, 
+                                                    { label: "2009년", y: 37171 }, 
+                                                    { label: "2010년", y: 36234 }, 
+                                                    { label: "2011년", y: 35554 }, 
+                                                    { label: "2012년", y: 35989 },
+                                                    { label: "2013년", y: 34091 }, 
+                                                    { label: "2014년", y: 33344 },
+                                                    { label: "2015년", y: 31191 },
+                                                    { label: "2016년", y: 30445},
+                                                    { label: "2017년", y: 29914 },
+                                                    { label: "2018년", y: 26084 },
+                                                    { label: "2019년", y: 22174 },
+                                                    { label: "2020년", y: 22602 },
+                                                    { label: "2021년", y: 20970 },
+                                                    { label: "2022년", y: 19287 },
+                                                ]
+                                            },
+                                            {
+                                                name: "고등학교 3학년",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 33026 }, 
+                                                    { label: "2009년", y: 36017 }, 
+                                                    { label: "2010년", y: 36635 }, 
+                                                    { label: "2011년", y: 35710 }, 
+                                                    { label: "2012년", y: 35033 },
+                                                    { label: "2013년", y: 35470 }, 
+                                                    { label: "2014년", y: 33671 },
+                                                    { label: "2015년", y: 32958 },
+                                                    { label: "2016년", y: 30836 },
+                                                    { label: "2017년", y: 30030 },
+                                                    { label: "2018년", y: 29478 },
+                                                    { label: "2019년", y: 25639 },
+                                                    { label: "2020년", y: 21822 },
+                                                    { label: "2021년", y: 22326 },
+                                                    { label: "2022년", y: 20562 },
+                                                ]
+                                            },]
+                                        });
+                                        chart3_3.render();
+                                        
+                                        function toggleDataSeries3_3(e) {
+                                            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                                                e.dataSeries.visible = false;
+                                            }
+                                            else {
+                                                e.dataSeries.visible = true;
+                                            }
+                                            chart3_3.render();
+                                        }
+
+                                        //교원수
                                         var chart4 = new CanvasJS.Chart("chartContainer4", {
                                             animationEnabled: true,
-                                            title: {
-                                                text: "어종별 수입 비율 - 2022"
+                                            title:{
+                                                text: "교원 수",
+                                                fontSize: 25,
                                             },
-                                            data: [{
-                                                type: "pie",
-                                                startAngle: 240,
-                                                yValueFormatString: "##0.00\"%\"",
-                                                indexLabel: "{label} {y}",
+                                            axisX: {
+                                                valueFormatString: "YYYY년"
+                                            },
+                                            axisY: {
+                                                title: "교원 수",
+                                                valueFormatString: "#,###",
+                                                suffix: " 명",
+                                                minimum: 1 
+                                            },
+                                            legend: {
+                                                    cursor: "pointer",
+                                                    itemclick: toggleDataSeries4
+                                            },
+                                            toolTip:{
+                                                shared: true
+                                            },
+                                            data: [
+                                            //     {
+                                            //     name: "총",
+                                            //     type: "spline",
+                                            //     yValueFormatString: "# 명",
+                                            //     showInLegend: true,
+                                            //     dataPoints: [
+                                            //         { label: "2008년", y: 22547 }, 
+                                            //         { label: "2009년", y: 22944 }, 
+                                            //         { label: "2010년", y: 23117 }, 
+                                            //         { label: "2011년", y: 23822 }, 
+                                            //         { label: "2012년", y: 24117 }, 
+                                            //         { label: "2013년", y: 24604 }, 
+                                            //         { label: "2014년", y: 24718 },
+                                            //         { label: "2015년", y: 24897 },
+                                            //         { label: "2016년", y: 24961 },
+                                            //         { label: "2017년", y: 24879 },
+                                            //         { label: "2018년", y: 25117 },
+                                            //         { label: "2019년", y: 24930 },
+                                            //         { label: "2020년", y: 24541 },
+                                            //         { label: "2021년", y: 24624 },
+                                            //         { label: "2022년", y: 24564 },
+                                            //     ]
+                                            // },
+                                            {
+                                                name: "유치원",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
                                                 dataPoints: [
-                                                    {y: 4.47, label: "명태"},
-                                                    {y: 0.85, label: "고등어"},
-                                                    {y: 0.14, label: "갈치"},
-                                                    {y: 94.54, label: "기타"}
+                                                    { label: "2008년", y: 1683 }, 
+                                                    { label: "2009년", y: 1786 }, 
+                                                    { label: "2010년", y: 1878 }, 
+                                                    { label: "2011년", y: 2052 }, 
+                                                    { label: "2012년", y: 2260 },
+                                                    { label: "2013년", y: 2538 }, 
+                                                    { label: "2014년", y: 2741 },
+                                                    { label: "2015년", y: 2946 },
+                                                    { label: "2016년", y: 3064 },
+                                                    { label: "2017년", y: 3002 },
+                                                    { label: "2018년", y: 3023 },
+                                                    { label: "2019년", y: 2928 },
+                                                    { label: "2020년", y: 2828 },
+                                                    { label: "2021년", y: 2938 },
+                                                    { label: "2022년", y: 2879 },
                                                 ]
-                                            }]
+                                            },
+                                            {
+                                                name: "초등학교",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 8476 }, 
+                                                    { label: "2009년", y: 8666 }, 
+                                                    { label: "2010년", y: 8709 }, 
+                                                    { label: "2011년", y: 8844 }, 
+                                                    { label: "2012년", y: 8860 },
+                                                    { label: "2013년", y: 9004 }, 
+                                                    { label: "2014년", y: 8971 },
+                                                    { label: "2015년", y: 8869 },
+                                                    { label: "2016년", y: 8873 },
+                                                    { label: "2017년", y: 8900 },
+                                                    { label: "2018년", y: 9039 },
+                                                    { label: "2019년", y: 9013 },
+                                                    { label: "2020년", y: 8905 },
+                                                    { label: "2021년", y: 8970 },
+                                                    { label: "2022년", y: 8930 },
+                                                ]
+                                            },
+                                            {
+                                                name: "중학교",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 5449 }, 
+                                                    { label: "2009년", y: 5438 }, 
+                                                    { label: "2010년", y: 5405 }, 
+                                                    { label: "2011년", y: 5506 }, 
+                                                    { label: "2012년", y: 5558 },
+                                                    { label: "2013년", y: 5635 }, 
+                                                    { label: "2014년", y: 5613 },
+                                                    { label: "2015년", y: 5601 },
+                                                    { label: "2016년", y: 5577 },
+                                                    { label: "2017년", y: 5552 },
+                                                    { label: "2018년", y: 5605 },
+                                                    { label: "2019년", y: 5581 },
+                                                    { label: "2020년", y: 5517 },
+                                                    { label: "2021년", y: 5462 },
+                                                    { label: "2022년", y: 5490 },
+                                                ]
+                                            },                                            {
+                                                name: "고등학교",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 6526 }, 
+                                                    { label: "2009년", y: 6629 }, 
+                                                    { label: "2010년", y: 6686 }, 
+                                                    { label: "2011년", y: 6957 }, 
+                                                    { label: "2012년", y: 6974 },
+                                                    { label: "2013년", y: 6966 }, 
+                                                    { label: "2014년", y: 6936 },
+                                                    { label: "2015년", y: 6949 },
+                                                    { label: "2016년", y: 6918 },
+                                                    { label: "2017년", y: 6884 },
+                                                    { label: "2018년", y: 6831 },
+                                                    { label: "2019년", y: 6757 },
+                                                    { label: "2020년", y: 6617 },
+                                                    { label: "2021년", y: 6500 },
+                                                    { label: "2022년", y: 6471 },
+                                                ]
+                                            },
+                                            {
+                                                name: "특수학교",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 393 }, 
+                                                    { label: "2009년", y: 405 }, 
+                                                    { label: "2010년", y: 419 }, 
+                                                    { label: "2011년", y: 442 }, 
+                                                    { label: "2012년", y: 442 },
+                                                    { label: "2013년", y: 438 }, 
+                                                    { label: "2014년", y: 437 },
+                                                    { label: "2015년", y: 512 },
+                                                    { label: "2016년", y: 507 },
+                                                    { label: "2017년", y: 503 },
+                                                    { label: "2018년", y: 545 },
+                                                    { label: "2019년", y: 574 },
+                                                    { label: "2020년", y: 594 },
+                                                    { label: "2021년", y: 664 },
+                                                    { label: "2022년", y: 707 },
+                                                ]
+                                            },
+                                            {
+                                                name: "각종학교",
+                                                type: "spline",
+                                                yValueFormatString: "#,### 명",
+                                                showInLegend: true,
+                                                dataPoints: [
+                                                    { label: "2008년", y: 18 }, 
+                                                    { label: "2009년", y: 18 }, 
+                                                    { label: "2010년", y: 18 }, 
+                                                    { label: "2011년", y: 19 }, 
+                                                    { label: "2012년", y: 20 },
+                                                    { label: "2013년", y: 20 }, 
+                                                    { label: "2014년", y: 20 },
+                                                    { label: "2015년", y: 20 },
+                                                    { label: "2016년", y: 22 },
+                                                    { label: "2017년", y: 38 },
+                                                    { label: "2018년", y: 74 },
+                                                    { label: "2019년", y: 77 },
+                                                    { label: "2020년", y: 80 },
+                                                    { label: "2021년", y: 90 },
+                                                    { label: "2022년", y: 87 },
+                                                ]
+                                            },]
                                         });
+
                                         chart4.render();
 
-                                        var chart5 = new CanvasJS.Chart("chartContainer5", {
-                                            animationEnabled: true,
-                                            title: {
-                                                text: "어종별 수출 비율 - 2022"
-                                            },
-                                            data: [{
-                                                type: "pie",
-                                                startAngle: 240,
-                                                yValueFormatString: "##0.00\"%\"",
-                                                indexLabel: "{label} {y}",
-                                                dataPoints: [
-                                                    {y: 23.57, label: "명태"},
-                                                    {y: 7.51, label: "고등어"},
-                                                    {y: 0.45, label: "갈치"},
-                                                    {y: 68.47, label: "기타"}
-                                                ]
-                                            }]
-                                        });
-                                        chart5.render();
+                                        function toggleDataSeries4(e) {
+                                            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                                                e.dataSeries.visible = false;
+                                            }
+                                            else {
+                                                e.dataSeries.visible = true;
+                                            }
+                                            chart4.render();
+                                        }
 
-                                        var chart6 = new CanvasJS.Chart("chartContainer6", {
-                                            animationEnabled: true,
-                                            title: {
-                                                text: "어종별 가격 비율 - 2022"
-                                            },
-                                            data: [{
-                                                type: "pie",
-                                                startAngle: 240,
-                                                yValueFormatString: "##0.00\"%\"",
-                                                indexLabel: "{label} {y}",
-                                                dataPoints: [
-                                                    {y: 8.05, label: "명태"},
-                                                    {y: 12.86, label: "새우"},
-                                                    {y: 11.35, label: "고등어"},
-                                                    {y: 16.71, label: "꽁치"},
-                                                    {y: 21.29, label: "갈치"},
-                                                    {y: 16.96, label: "물오징어"},
-                                                    {y: 12.79, label: "새우"},
-                                                ]
-                                            }]
-                                        });
-                                        chart6.render();
+                                        // var chart5 = new CanvasJS.Chart("chartContainer5", {
+                                        //     animationEnabled: true,
+                                        //     title: {
+                                        //         text: "어종별 수입 비율 - 2022"
+                                        //     },
+                                        //     data: [{
+                                        //         type: "pie",
+                                        //         startAngle: 240,
+                                        //         yValueFormatString: "#,### 개",
+                                        //         indexLabel: "{label} {y}",
+                                        //         dataPoints: [
+                                        //             {y: 225, label: "초등학교"},
+                                        //             {y: 125, label: "중학교"},
+                                        //             {y: 92, label: "고등학교"}
+                                        //         ]
+                                        //     }]
+                                        // });
+                                        
+                                        // chart5.render();
                                     }
-
                                 </script>
                             </thead>
                             <tbody>
-                                <div id="chartContainer1" style="height: 290px; width: 98%;"></div>
+                                <div id="chartContainer3" style="height: 350px; width: 98%;"></div>
                                 <br></br>
-                                <div id="chartContainer2" style="height: 290px; width: 98%;"></div>
+                                <div id="chartContainer3_1" style="height: 350px; width: 98%;"></div>
+                                <div id="chartContainer3_2" style="height: 350px; width: 98%;"></div>
+                                <div id="chartContainer3_3" style="height: 350px; width: 98%;"></div>
+                                <div id="chartContainer4" style="height: 350px; width: 48%;;display: inline-block;"></div>
+                                <div id="chartContainer2" style="height: 350px; width: 48%;;display: inline-block;"></div>
+                                
                                 <br></br>
-                                <div id="chartContainer3" style="height: 290px; width: 98%;"></div>
-                                <br></br>
-                                <div id="chartContainer4" style="height: 290px; width: 33%;display: inline-block;"></div>
-                                <div id="chartContainer5" style="height: 290px; width: 33%;display: inline-block;"></div>
-                                <div id="chartContainer6" style="height: 290px; width: 33%;display: inline-block;"></div>
+                                <div id="chartContainer1" style="height: 360px; width: 98%;"></div>
+                                <!-- <div id="chartContainer5" style="height: 290px; width: 33%;display: inline-block;"></div>
+                                <br></br> -->
                                 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
                             </tbody>
                         </table>
@@ -371,11 +908,10 @@
         </div>
     </div>
 </div>
-
 <!-- <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">국가별 수입·수출 현황</h6>
+            <h6 class="m-0 font-weight-bold text-primary">대구광역시 학교 및 학생 개요</h6>
         </div>
         <div class="card-body">
             
@@ -383,8 +919,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>수출</th>
-                            <th>수입</th>
+                            <th>학교 수 분포</th>
+                            <th>학생 수 분포</th>
                         </tr>
                     </thead>
                     <tbody>
