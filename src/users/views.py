@@ -452,85 +452,45 @@ class TablesView26(APIView):
         
 
 class uTablesView17_1(APIView):
-    def get(self, request, *args, **kwargs):
-        
-        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
-
-        json_records = data.reset_index().to_json(orient ='records')
-        data = json.loads(json_records)
-        context = {'df': data}
-        return render(request, "theme/utables17_1.html", context)
+        def get(self, request):
+            
+            return render(request, "theme/utables17_1.html")
 
 class uTablesView18_1(APIView):
-    def get(self, request, *args, **kwargs):
-        
-        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
-
-        json_records = data.reset_index().to_json(orient ='records')
-        data = json.loads(json_records)
-        context = {'df': data}
-        return render(request, "theme/utables18_1.html", context)
+    def get(self, request):
+            
+            return render(request, "theme/utables18_1.html")
 
 class uTablesView19_1(APIView):
-    def get(self, request, *args, **kwargs):
-        
-        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
-
-        json_records = data.reset_index().to_json(orient ='records')
-        data = json.loads(json_records)
-        context = {'df': data}
-        return render(request, "theme/utables19_1.html", context)
+    def get(self, request):
+            
+            return render(request, "theme/utables19_1.html")
 
 class uTablesView20_1(APIView):
-    def get(self, request, *args, **kwargs):
-        
-        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
-
-        json_records = data.reset_index().to_json(orient ='records')
-        data = json.loads(json_records)
-        context = {'df': data}
-        return render(request, "theme/utables20_1.html", context)
+    def get(self, request):
+            
+            return render(request, "theme/utables20_1.html")
 
 class uTablesView21_1(APIView):
-    def get(self, request, *args, **kwargs):
-        
-        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
-
-        json_records = data.reset_index().to_json(orient ='records')
-        data = json.loads(json_records)
-        context = {'df': data}
-        return render(request, "theme/utables21_1.html", context)
+    def get(self, request):
+            
+            return render(request, "theme/utables21_1.html")
 
 class uTablesView22_1(APIView):
-    def get(self, request, *args, **kwargs):
-        
-        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
-
-        json_records = data.reset_index().to_json(orient ='records')
-        data = json.loads(json_records)
-        context = {'df': data}
-        return render(request, "theme/utables22_1.html", context)
+    def get(self, request):
+            
+            return render(request, "theme/utables22_1.html")
 
 class uTablesView23_1(APIView):
-    def get(self, request, *args, **kwargs):
-        
-        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
-
-        json_records = data.reset_index().to_json(orient ='records')
-        data = json.loads(json_records)
-        context = {'df': data}
-        return render(request, "theme/utables23_1.html", context)                                
+    def get(self, request):
+            
+            return render(request, "theme/utables23_1.html")                            
 
 
 class uTablesView24_1(APIView):
-    def get(self, request, *args, **kwargs):
-        
-        data = pd.read_csv("./적정교원산출연구/03. 교원수 산정 결과/SSM_합계.csv",encoding="utf-8-sig")
-
-        json_records = data.reset_index().to_json(orient ='records')
-        data = json.loads(json_records)
-        context = {'df': data}
-        return render(request, "theme/utables24_1.html", context)
+    def get(self, request):
+            
+            return render(request, "theme/utables24_1.html")
 
 
 
