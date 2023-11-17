@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load staticfiles %}
+{% block title %} Tables {% endblock %}
+
+
+{% block css %}
+<!-- Custom styles for this page -->
+<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block container_fluid %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">지역별 공동주택과 학교와의 교통 인프라 분석</h1>
+    <p class="mb-4">달서구 내 공동주택 별 최단거리 학교와의 교통 인프라 분석 결과</p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <!-- <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div> -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th> 1</th>
+                            <th> 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>
+                            <img src="{% static '/resource/img/달서구/image01.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image02.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image03.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image04.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image05.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image06.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image07.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image08.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image09.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image10.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image11.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image12.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image13.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image14.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image15.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image16.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image17.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image18.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image19.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image20.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image21.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image22.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image23.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image24.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image25.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image26.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image27.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image28.png' %}", width = "500" alt="tt">
+                            </td>
+                        <td>
+                            <img src="{% static '/resource/img/달서구/image29.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image30.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image31.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image32.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image33.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image34.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image35.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image36.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image37.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image38.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image39.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image40.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image41.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image42.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image43.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image44.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image45.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image46.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image47.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image48.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image49.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image50.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image51.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image52.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image53.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image54.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image55.png' %}", width = "500" alt="tt">
+                            <img src="{% static '/resource/img/달서구/image56.png' %}", width = "500" alt="tt">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_body %}
+<!-- Data Tables -->
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+{% endblock %}
+

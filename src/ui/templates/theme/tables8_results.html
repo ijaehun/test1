@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block title %} Tables {% endblock %}
+
+
+{% block css %}
+<!-- Custom styles for this page -->
+<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block container_fluid %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">{{ l.0 }} {{ l.1 }} 자치구별 학생수 추계(SSM모델)</h1>
+    <div class="card shadow mb-4">
+        <!-- <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div> -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>  
+                            <th>연도</th>
+                            <th>남구</th>
+                            <th>달서구</th>
+                            <th>달성군</th>
+                            <th>동구</th>
+                            <th>북구</th>
+                            <th>서구</th>
+                            <th>수성구</th>
+                            <th>중구</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for db in df %}
+                        <tr> 
+                            <td>{{ db.연도 }}</td>
+                            <td>{{ db.남구 }}</td>
+                            <td>{{ db.달서구 }}</td>
+                            <td>{{ db.달성군 }}</td>
+                            <td>{{ db.동구 }}</td>
+                            <td>{{ db.북구 }}</td>
+                            <td>{{ db.서구 }}</td>
+                            <td>{{ db.수성구 }}</td>
+                            <td>{{ db.중구 }}</td>
+                        </tr>
+                        {% endfor %}    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_body %}
+<!-- Data Tables -->
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+{% endblock %}
