@@ -50,7 +50,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'users:tables_url' %}">
           <i class="fas fa-fw fa-table"></i>
-          <span>신생아수 예측</span></a>
+          <span>출생아 수 예측</span></a>
       </li>
 
       <li class="nav-item">
@@ -72,6 +72,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">지역별</h6>
             <a class="collapse-item" href="{% url 'users:tables5_url' %}">저위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables5_1_url' %}">무이동추계</a>
             <a class="collapse-item" href="{% url 'users:tables6_url' %}">중위추계</a>
             <a class="collapse-item" href="{% url 'users:tables7_url' %}">CRU 모델</a>
             <a class="collapse-item" href="{% url 'users:tables8_url' %}">SSM 모델</a>
@@ -88,7 +89,12 @@
         <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">초등학교</h6>
-            <a class="collapse-item" href="{% url 'users:tables9_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables9_url' %}">저위추계_기본</a>
+            <a class="collapse-item" href="{% url 'users:tables9_1_url' %}">저위추계_공동주택반영</a>
+            <a class="collapse-item" href="{% url 'users:tables9_2_url' %}">무이동추계_기본</a>
+            <a class="collapse-item" href="{% url 'users:tables9_3_url' %}">무이동추계_공동주택반영</a>
+            <a class="collapse-item" href="{% url 'users:tables9_4_url' %}">중위추계_기본</a>
+            <a class="collapse-item" href="{% url 'users:tables9_5_url' %}">중위추계_공동주택반영</a>
             <a class="collapse-item" href="{% url 'users:tables10_url' %}">CRU 모델</a>
             <a class="collapse-item" href="{% url 'users:tables11_url' %}">SSM 모델</a>
           </div>
@@ -96,6 +102,8 @@
         <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">중학교</h6>
+            <a class="collapse-item" href="{% url 'users:tables12_1_url' %}">저위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables12_2_url' %}">무이동추계</a>
             <a class="collapse-item" href="{% url 'users:tables12_url' %}">중위추계</a>
             <a class="collapse-item" href="{% url 'users:tables13_url' %}">CRU 모델</a>
             <a class="collapse-item" href="{% url 'users:tables14_url' %}">SSM 모델</a>
@@ -104,6 +112,8 @@
         <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">고등학교</h6>
+            <a class="collapse-item" href="{% url 'users:tables15_1_url' %}">저위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables15_2_url' %}">무이동추계</a>
             <a class="collapse-item" href="{% url 'users:tables15_url' %}">중위추계</a>
             <a class="collapse-item" href="{% url 'users:tables16_url' %}">CRU 모델</a>
             <a class="collapse-item" href="{% url 'users:tables17_url' %}">SSM 모델</a>
@@ -120,18 +130,27 @@
         <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">초등학교</h6>
-            <a class="collapse-item" href="{% url 'users:tables18_url' %}">중위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables18_url' %}">저위추계_기본</a>
+            <a class="collapse-item" href="{% url 'users:tables18_1_url' %}">저위추계_공동주택반영</a>
+            <a class="collapse-item" href="{% url 'users:tables18_2_url' %}">무이동추계_기본</a>
+            <a class="collapse-item" href="{% url 'users:tables18_3_url' %}">무이동추계_공동주택반영</a>
+            <a class="collapse-item" href="{% url 'users:tables18_4_url' %}">중위추계_기본</a>
+            <a class="collapse-item" href="{% url 'users:tables18_5_url' %}">중위추계_공동주택반영</a>
             <a class="collapse-item" href="{% url 'users:tables19_url' %}">CRU 모델</a>
             <a class="collapse-item" href="{% url 'users:tables20_url' %}">SSM 모델</a>
           </div>
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">중학교</h6>
+            <a class="collapse-item" href="{% url 'users:tables21_1_url' %}">저위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables21_2_url' %}">무이동추계</a>
             <a class="collapse-item" href="{% url 'users:tables21_url' %}">중위추계</a>
             <a class="collapse-item" href="{% url 'users:tables22_url' %}">CRU 모델</a>
             <a class="collapse-item" href="{% url 'users:tables23_url' %}">SSM 모델</a>
           </div>
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">고등학교</h6>
+            <a class="collapse-item" href="{% url 'users:tables24_1_url' %}">저위추계</a>
+            <a class="collapse-item" href="{% url 'users:tables24_2_url' %}">무이동추계</a>
             <a class="collapse-item" href="{% url 'users:tables24_url' %}">중위추계</a>
             <a class="collapse-item" href="{% url 'users:tables25_url' %}">CRU 모델</a>
             <a class="collapse-item" href="{% url 'users:tables26_url' %}">SSM 모델</a>

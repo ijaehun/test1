@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Tables {% endblock %}
+
+
+{% block css %}
+<!-- Custom styles for this page -->
+<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block container_fluid %}
+
+<script>
+
+function send() {
+    // alert("시뮬레이션 진행 중");
+    document.getElementById("contents").submit();
+}
+
+function categoryChange(e) {
+    var good_a = ["1학년", "2학년", "3학년", "4학년", "5학년", "6학년"];
+    var good_b = ["1학년", "2학년", "3학년"];
+    var good_c = ["1학년", "2학년", "3학년"];
+    var target = document.getElementById("prelevel");
+
+    if(e.value == "초등학교") var d = good_a;
+    else if(e.value == "중학교") var d = good_b;
+    else if(e.value == "고등학교") var d = good_c;
+    
+    target.options.length = 0;
+    
+    for (x in d) {
+        var opt = document.createElement("option");
+        opt.value = d[x];
+        opt.innerHTML = d[x];
+        target.appendChild(opt);
+    } 
+
+    var good_a1 = ["기본", "공동주택반영"];
+    var good_b1 = ["기본"];
+    var good_c1 = ["기본"];
+    var target = document.getElementById("model");
+
+    if(e.value == "초등학교") var d = good_a1;
+    else if(e.value == "중학교") var d = good_b1;
+    else if(e.value == "고등학교") var d = good_c1;
+    
+    target.options.length = 0;
+    
+    for (x in d) {
+        var opt = document.createElement("option");
+        opt.value = d[x];
+        opt.innerHTML = d[x];
+        target.appendChild(opt);
+    } 
+
+}
+
+
+</script>
+
+<div class="container-fluid">
+    <h1 class="h3 mb-2 text-gray-800">학년별 자치구별 학생수 추계(무이동추계)</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <form id="contents" name="contents" method="get" action="{% url 'users:tables5_1_results_url' %}">
+                            {% csrf_token %}
+                            <p>
+                            <label for="schoollevel">학교 유형 선택 : </label>
+                            <select id="schoollevel" name="schoollevel" onchange="categoryChange(this)">
+                                <option>선택해주세요</option>
+                                <option value="초등학교">초등학교</option>
+                                <option value="중학교">중학교</option>
+                                <option value="고등학교">고등학교</option>
+                            </select>
+                            </p>
+
+                            <p>
+                            <label for="prelevel">학년 선택 : </label>
+                            <select id="prelevel" name="prelevel">
+                                <option selected disabled>선택해주세요</option>
+                                <option >선택해주세요</option>
+                            </select>
+                            </p>
+
+                            <p>
+                            <label for="model">모형 유형 선택 : </label>
+                            <select id="model" name="model">
+                                <option selected disabled>선택해주세요</option>
+                                <option value="기본">기본</option>
+                                <option value="공동주택반영">공동주택반영</option>
+                            </select>
+                            </p>
+
+                            <button type="button" onclick="send();">결과</button>
+
+                        </form>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_body %}
+<!-- Data Tables -->
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/demo/datatables-demo.js' %}"></script>
+{% endblock %}
